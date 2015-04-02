@@ -1,0 +1,97 @@
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Last_Name %><br>
+    <%= f.text_field :Last_Name %>
+  </div>
+  <div class="field">
+    <%= f.label :First_Name %><br>
+    <%= f.text_field :First_Name %>
+  </div>
+  <div class="field">
+    <%= f.label :Company %><br>
+    <%= f.text_field :Company %>
+  </div>
+  <div class="field">
+    <%= f.label :TX_License %><br>
+    <%= f.number_field :TX_License %>
+  </div>
+  <div class="field">
+    <%= f.label :Street1 %><br>
+    <%= f.text_area :Street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :City %><br>
+    <%= f.text_field :City %>
+  </div>
+  <div class="field">
+    <%= f.label :State %><br>
+    <%= f.text_field :State %>
+  </div>
+  <div class="field">
+    <%= f.label :Zip %><br>
+    <%= f.number_field :Zip %>
+  </div>
+  <div class="field">
+    <%= f.label :Main_Phone %><br>
+    <%= f.number_field :Main_Phone %>
+  </div>
+  <div class="field">
+    <%= f.label :Main_Email %><br>
+    <%= f.text_field :Main_Email %>
+  </div>
+  <div class="field">
+    <%= f.label :Customer_Type %><br>
+    <%= f.text_field :Customer_Type %>
+  </div>
+  <div class="field">
+    <%= f.label :Date_Joined_TAA %><br>
+    <%= f.number_field :Date_Joined_TAA %>
+  </div>
+  <div class="field">
+    <%= f.label :Pymt_Type %><br>
+    <%= f.text_field :Pymt_Type %>
+  </div>
+  <div class="field">
+    <%= f.label :Pymt_Amt %><br>
+    <%= f.number_field :Pymt_Amt %>
+  </div>
+  <div class="field">
+    <%= f.label :Pymt_Date %><br>
+    <%= f.date_select :Pymt_Date %>
+  </div>
+  <div class="field">
+    <%= f.label :Notes %><br>
+    <%= f.text_area :Notes %>
+  </div>
+  <div class="field">
+    <%= f.label :Added_to_WebBase %><br>
+    <%= f.check_box :Added_to_WebBase %>
+  </div>
+  <div class="field">
+    <%= f.label :PAC_Contribution %><br>
+    <%= f.number_field :PAC_Contribution %>
+  </div>
+  <div class="field">
+    <%= f.label :Annual_Convention_CE_Hours %><br>
+    <%= f.number_field :Annual_Convention_CE_Hours %>
+  </div>
+  <div class="field">
+    <%= f.label :Online_CE_Hours %><br>
+    <%= f.number_field :Online_CE_Hours %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

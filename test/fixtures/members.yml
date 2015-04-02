@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Last_Name: MyString
+  First_Name: MyString
+  Company: MyString
+  TX_License: 1
+  Street1: MyText
+  City: MyString
+  State: MyString
+  Zip: 1
+  Main_Phone: 1
+  Main_Email: MyString
+  Customer_Type: MyString
+  Date_Joined_TAA: 1
+  Pymt_Type: MyString
+  Pymt_Amt: 1
+  Pymt_Date: 2015-04-02
+  Notes: MyText
+  Added_to_WebBase: false
+  PAC_Contribution: 1
+  Annual_Convention_CE_Hours: 1
+  Online_CE_Hours: 1
+
+two:
+  Last_Name: MyString
+  First_Name: MyString
+  Company: MyString
+  TX_License: 1
+  Street1: MyText
+  City: MyString
+  State: MyString
+  Zip: 1
+  Main_Phone: 1
+  Main_Email: MyString
+  Customer_Type: MyString
+  Date_Joined_TAA: 1
+  Pymt_Type: MyString
+  Pymt_Amt: 1
+  Pymt_Date: 2015-04-02
+  Notes: MyText
+  Added_to_WebBase: false
+  PAC_Contribution: 1
+  Annual_Convention_CE_Hours: 1
+  Online_CE_Hours: 1

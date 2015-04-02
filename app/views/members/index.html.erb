@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Company</th>
+      <th>Tx license</th>
+      <th>Street1</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Main phone</th>
+      <th>Main email</th>
+      <th>Customer type</th>
+      <th>Date joined taa</th>
+      <th>Pymt type</th>
+      <th>Pymt amt</th>
+      <th>Pymt date</th>
+      <th>Notes</th>
+      <th>Added to webbase</th>
+      <th>Pac contribution</th>
+      <th>Annual convention ce hours</th>
+      <th>Online ce hours</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.Last_Name %></td>
+        <td><%= member.First_Name %></td>
+        <td><%= member.Company %></td>
+        <td><%= member.TX_License %></td>
+        <td><%= member.Street1 %></td>
+        <td><%= member.City %></td>
+        <td><%= member.State %></td>
+        <td><%= member.Zip %></td>
+        <td><%= member.Main_Phone %></td>
+        <td><%= member.Main_Email %></td>
+        <td><%= member.Customer_Type %></td>
+        <td><%= member.Date_Joined_TAA %></td>
+        <td><%= member.Pymt_Type %></td>
+        <td><%= member.Pymt_Amt %></td>
+        <td><%= member.Pymt_Date %></td>
+        <td><%= member.Notes %></td>
+        <td><%= member.Added_to_WebBase %></td>
+        <td><%= member.PAC_Contribution %></td>
+        <td><%= member.Annual_Convention_CE_Hours %></td>
+        <td><%= member.Online_CE_Hours %></td>
+        <td><%= link_to 'Show', member %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Member', new_member_path %>

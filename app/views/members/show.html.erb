@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @member.Last_Name %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @member.First_Name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @member.Company %>
+</p>
+
+<p>
+  <strong>Tx license:</strong>
+  <%= @member.TX_License %>
+</p>
+
+<p>
+  <strong>Street1:</strong>
+  <%= @member.Street1 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @member.City %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @member.State %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @member.Zip %>
+</p>
+
+<p>
+  <strong>Main phone:</strong>
+  <%= @member.Main_Phone %>
+</p>
+
+<p>
+  <strong>Main email:</strong>
+  <%= @member.Main_Email %>
+</p>
+
+<p>
+  <strong>Customer type:</strong>
+  <%= @member.Customer_Type %>
+</p>
+
+<p>
+  <strong>Date joined taa:</strong>
+  <%= @member.Date_Joined_TAA %>
+</p>
+
+<p>
+  <strong>Pymt type:</strong>
+  <%= @member.Pymt_Type %>
+</p>
+
+<p>
+  <strong>Pymt amt:</strong>
+  <%= @member.Pymt_Amt %>
+</p>
+
+<p>
+  <strong>Pymt date:</strong>
+  <%= @member.Pymt_Date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @member.Notes %>
+</p>
+
+<p>
+  <strong>Added to webbase:</strong>
+  <%= @member.Added_to_WebBase %>
+</p>
+
+<p>
+  <strong>Pac contribution:</strong>
+  <%= @member.PAC_Contribution %>
+</p>
+
+<p>
+  <strong>Annual convention ce hours:</strong>
+  <%= @member.Annual_Convention_CE_Hours %>
+</p>
+
+<p>
+  <strong>Online ce hours:</strong>
+  <%= @member.Online_CE_Hours %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
