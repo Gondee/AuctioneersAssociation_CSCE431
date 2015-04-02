@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Last_Name: MyString
   First_Name: MyString
+  Last_Name: MyString
   Company: MyString
   TX_License: 1
   Street1: MyText
@@ -23,8 +23,8 @@ one:
   Online_CE_Hours: 1
 
 two:
-  Last_Name: MyString
   First_Name: MyString
+  Last_Name: MyString
   Company: MyString
   TX_License: 1
   Street1: MyText
