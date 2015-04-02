@@ -9,7 +9,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :City
       t.string :State
       t.integer :Zip
-      t.integer :Main_Phone
+      t.string :Main_Phone
       t.string :Main_Email
       t.string :Customer_Type
       t.integer :Date_Joined_TAA
