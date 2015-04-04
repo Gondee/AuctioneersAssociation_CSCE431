@@ -12,5 +12,9 @@ class Member < ActiveRecord::Base
    VALID_PHONE_REGEX=/\A[0-9]+\z/
    validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
    
+   def FullName
+    [First_Name, Last_Name].join " "
+   end
+   
    
 end
