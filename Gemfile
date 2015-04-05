@@ -24,3 +24,7 @@ group :production do
 end
 
 gem "cucumber"
+
+gem 'factory_girl_rails'
+
+gem 'faker'
