@@ -1,3 +1,5 @@
+require 'csv'
+
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
@@ -59,6 +61,12 @@ class MembersController < ApplicationController
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Import excel sheet
+  def import
+    Member.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
   end
 
   private
