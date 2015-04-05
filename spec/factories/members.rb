@@ -7,6 +7,6 @@ FactoryGirl.define do
     f.Zip{ Faker::Address.zip}
     f.Main_Phone{ Faker::PhoneNumber.extension }
     f.Main_Email{ Faker::Internet.safe_email}
-    #f.Date_Joined_TAA{"2015"}
+    f.Date_Joined_TAA{"2015"}
   end
 end
