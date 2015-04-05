@@ -12,6 +12,8 @@ class Member < ActiveRecord::Base
    VALID_PHONE_REGEX=/\A[0-9]+\z/
    validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
    
+   validates :Date_Joined_TAA, :numericality => { :greater_than => 1900, :less_than_or_equal_to => 2015 }
+   
    #def FullName
     #[First_Name, Last_Name].join " "
    #end
