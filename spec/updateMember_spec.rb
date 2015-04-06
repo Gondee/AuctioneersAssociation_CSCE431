@@ -21,6 +21,17 @@ describe MembersController do
         Street1:"Street_Updated",City:"City_Updated",State:"State_Upated",Zip:"000000",Main_Phone:"000000000",Main_Email:"email_updated@update.com",Customer_Type:"type_updated",
         Date_Joined_TAA:"2000",Pymt_Type:"Updated")
     end
+    it "is required that update change the objects values" do
+       @member = Member.new(Last_Name: "Example_LastName", First_Name: "Example_FirstName", 
+        Zip:"123456", Main_Phone: "1234567", Main_Email: "test@test.test",Date_Joined_TAA:"2000")
+        Member.create!(@member.attributes)
+        @member.save
+        Member.update(@member.id, Last_Name:"Last_Name_Updated", First_Name:"First_Name_Updated",Company:"Company_Updated",TX_License:"000000",
+        Street1:"Street_Updated",City:"City_Updated",State:"State_Upated",Zip:"000000",Main_Phone:"000000000",Main_Email:"email_updated@update.com",Customer_Type:"type_updated",
+        Date_Joined_TAA:"2000",Pymt_Type:"Updated")
+        @member.save
+        @member.Last_Name == "Last_Name_Updated"
+    end
     
 end
  #@newMemberParams = member_params.new(Last_Name:"Last_Name_Updated", First_Name:"First_Name_Updated",Company:"Company_Updated",TX_License:"000000",
