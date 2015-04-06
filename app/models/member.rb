@@ -12,7 +12,7 @@ class Member < ActiveRecord::Base
    #VALID_PHONE_REGEX=/\A[0-9]+\z/
    #validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
    
-   require 'date'
+   
    
    #validates :Date_Joined_TAA, :numericality => { :greater_than => 1900, :less_than_or_equal_to => Time.now.year.to_i }
    
@@ -23,7 +23,21 @@ class Member < ActiveRecord::Base
    #Import CSV forms
    def self.import(file)
      CSV.foreach(file.path, headers: true) do |row|
-       Member.create! row.to_hash
+       row_hash = row.to_hash
+       if row_hash["Pymt_Amt"] != nil
+         row_hash["Pymt_Amt"] = row_hash["Pymt_Amt"].gsub(/\D/,'').to_i
+       end
+       if row_hash["PAC_Contribution"] != nil
+         row_hash["PAC_Contribution"] = row_hash["PAC_Contribution"].gsub(/\D/,'').to_i
+       end
+       if row_hash["Added_to_WebBase"] != nil
+         if row_hash["Added_to_WebBase"] == "Y"
+           row_hash["Added_to_WebBase"] = true
+         else
+           row_hash["Added_to_WebBase"] = false
+         end
+       end
+       Member.create! row_hash
      end
    end
    

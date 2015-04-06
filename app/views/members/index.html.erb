@@ -65,7 +65,8 @@
 
 <%= link_to 'New Member', new_member_path %>
 
-<h2>Import Members From Excel</h2>
+<h2>Import Members From CSV</h2>
+<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
 <%= form_tag import_members_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
