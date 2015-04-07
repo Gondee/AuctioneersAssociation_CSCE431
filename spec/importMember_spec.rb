@@ -5,7 +5,7 @@ describe MembersController, type: :controller do
         it "redirects to the members page" do
             allow(Member).to receive(:import).with("foo.txt")
             post :import, file: "foo.txt"
-            expect(response).to redirect_to members_url
+            expect(response).to redirect_to members_path
         end
         
         it "adds a notice" do
