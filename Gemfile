@@ -16,6 +16,7 @@ group :development, :test do
   gem 'spring',      '1.1.3'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :production do
