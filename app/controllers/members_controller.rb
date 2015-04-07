@@ -61,7 +61,7 @@ class MembersController < ApplicationController
     end
   end
 
-  # Import excel sheet
+  # Import CSV table
   def import
     Member.import(params[:file])
     redirect_to members_url, notice: "Products imported."
