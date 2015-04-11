@@ -101,8 +101,13 @@
 </p>
 
 <p>
-  <strong>Online ce hours:</strong>
-  <%= @member.Online_CE_Hours %>
+  <strong>Member Created At:</strong>
+  <%= @member.created_at %>
+</p>
+
+<p>
+  <strong>Member Updated At:</strong>
+  <%= @member.updated_at %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |

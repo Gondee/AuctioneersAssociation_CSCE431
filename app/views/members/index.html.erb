@@ -26,6 +26,8 @@
       <th>Pac contribution</th>
       <th>Annual convention ce hours</th>
       <th>Online ce hours</th>
+      <th>Member Created At</th>
+      <th>Member Updated At</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -54,6 +56,8 @@
         <td><%= member.PAC_Contribution %></td>
         <td><%= member.Annual_Convention_CE_Hours %></td>
         <td><%= member.Online_CE_Hours %></td>
+        <td><%= member.created_at %></td>
+        <td><%= member.updated_at %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
