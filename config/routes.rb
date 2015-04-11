@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   
-  resources :continueedus
+  resources :continueedus do
+    collection { post :import }
+  end
 
-  resources :pacs
+  resources :pacs do
+    collection { post :import }
+  end
 
-  resources :payments
+  resources :payments do
+    collection { post :import }
+  end
 
-  resources :members
+  resources :members do
+    collection { post :import }
+  end
 
   resources :members do
     collection { post :import }

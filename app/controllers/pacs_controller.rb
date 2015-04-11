@@ -61,6 +61,12 @@ class PacsController < ApplicationController
     end
   end
 
+  # Import CSV table
+  def import
+    Pac.import(params[:file])
+    redirect_to pacs_url, notice: "Products imported."
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pac

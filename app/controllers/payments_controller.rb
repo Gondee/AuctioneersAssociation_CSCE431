@@ -63,7 +63,13 @@ class PaymentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  # Import CSV table
+  def import
+    Payment.import(params[:file])
+    redirect_to payments_url, notice: "Products imported."
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_payment

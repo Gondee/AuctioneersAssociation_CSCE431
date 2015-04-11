@@ -9,7 +9,7 @@
       <th>Pymt type</th>
       <th>Pymt amt</th>
       <th>Pymt date</th>
-      <th>Member</th>
+      <th>member</th>
     </tr>
   </thead>
 
@@ -32,3 +32,10 @@
 <br>
 
 <%= link_to 'New Payment', new_payment_path %>
+
+<h2>Import Payments From CSV</h2>
+<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
+<%= form_tag import_payments_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
