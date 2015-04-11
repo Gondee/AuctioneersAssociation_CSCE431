@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Pymt type</th>
       <th>Pymt amt</th>
       <th>Pymt date</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
+        <td><%= payment.id %></td>
         <td><%= payment.Pymt_Type %></td>
         <td><%= payment.Pymt_Amt %></td>
         <td><%= payment.Pymt_Date %></td>
