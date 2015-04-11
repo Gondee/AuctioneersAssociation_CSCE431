@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
-    #@member = Member.find(params[:id])
+    @member = Member.find(params[:id])
     #@payment = @member.payments.paginate(page: params[:page])
   end
 
@@ -30,6 +30,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        log_in @member
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
@@ -77,6 +78,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:Last_Name, :First_Name, :Company, :TX_License, :Street1, :City, :State, :Zip, :Main_Phone, :Main_Email, :Customer_Type, :Date_Joined_TAA, :Pymt_Type, :Pymt_Amt, :Pymt_Date, :Notes, :Added_to_WebBase, :PAC_Contribution, :Annual_Convention_CE_Hours, :Online_CE_Hours)
+      params.require(:member).permit(:Last_Name, :First_Name, :Company, :TX_License, :Street1, :City, :State, :Zip, :Main_Phone, :Main_Email, :Customer_Type, :Date_Joined_TAA, :Pymt_Type, :Pymt_Amt, :Pymt_Date, :Notes, :Added_to_WebBase, :PAC_Contribution, :Annual_Convention_CE_Hours, :Online_CE_Hours, :password, :password_confirmation)
     end
 end

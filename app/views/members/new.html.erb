@@ -1,5 +1,27 @@
-<h1>New Member</h1>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', members_path %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@member) do |f| %>
+     <%= render 'shared/error_messages' %>
+     
+      <%= f.label :Last_Name %>
+      <%= f.text_field :Last_Name, class: 'form-control'  %>
+      <br>
+      <%= f.label :First_Name %>
+      <%= f.text_field :First_Name, class: 'form-control'  %>
+      <br>
+      <%= f.label :Main_Email %>
+      <%= f.email_field :Main_Email, class: 'form-control'  %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control'  %>
+      <br>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control'  %>
+      <br>
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -31,3 +31,5 @@ gem 'factory_girl_rails'
 gem 'faker'
 
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
+
+gem 'bcrypt',               '3.1.7'
