@@ -2,6 +2,7 @@
 #rails destroy scaffold Member
 #bundle exec rake db:migrate
 #git push heroku master
+#heroku git:remote -a devops
 #heroku rake db:migrate
 #heroku pg:reset DATABASE
 #Roll Back database: bundle exec rake db:rollback
