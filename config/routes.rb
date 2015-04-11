@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :continueedus
+
+  resources :pacs
+
   resources :payments
 
   resources :members

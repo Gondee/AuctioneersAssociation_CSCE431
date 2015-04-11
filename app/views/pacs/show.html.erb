@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>PAC ID:</strong>
+  <%= @pac.id %>
+</p>
+
+<p>
+  <strong>Pac contribution:</strong>
+  <%= @pac.PAC_Contribution %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @pac.member %>
+</p>
+
+<%= link_to 'Edit', edit_pac_path(@pac) %> |
+<%= link_to 'Back', pacs_path %>

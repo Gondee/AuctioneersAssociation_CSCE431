@@ -1,0 +1,25 @@
+<%= form_for(@pac) do |f| %>
+  <% if @pac.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pac.errors.count, "error") %> prohibited this pac from being saved:</h2>
+
+      <ul>
+      <% @pac.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :PAC_Contribution %><br>
+    <%= f.text_field :PAC_Contribution %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.text_field :member_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

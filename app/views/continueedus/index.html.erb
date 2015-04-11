@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Continueedus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Annual convention ce hours</th>
+      <th>Online ce hours</th>
+      <th>Member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @continueedus.each do |continueedu| %>
+      <tr>
+        <td><%= continueedu.id %></td>
+        <td><%= continueedu.Annual_Convention_CE_Hours %></td>
+        <td><%= continueedu.Online_CE_Hours %></td>
+        <td><%= continueedu.member %></td>
+        <td><%= link_to 'Show', continueedu %></td>
+        <td><%= link_to 'Edit', edit_continueedu_path(continueedu) %></td>
+        <td><%= link_to 'Destroy', continueedu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Continueedu', new_continueedu_path %>

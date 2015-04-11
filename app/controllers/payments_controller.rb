@@ -11,6 +11,9 @@ class PaymentsController < ApplicationController
   # GET /payments/1.json
   def show
   end
+  
+  def show_pym_this_user
+  end
 
   # GET /payments/new
   def new

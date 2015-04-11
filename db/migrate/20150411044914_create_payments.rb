@@ -9,5 +9,6 @@ class CreatePayments < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :payments, :members
+    add_index :payments, [:member_id, :created_at]
   end
 end
