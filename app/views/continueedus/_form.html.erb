@@ -1,0 +1,29 @@
+<%= form_for(@continueedu) do |f| %>
+  <% if @continueedu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@continueedu.errors.count, "error") %> prohibited this continueedu from being saved:</h2>
+
+      <ul>
+      <% @continueedu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Annual_Convention_CE_Hours %><br>
+    <%= f.text_field :Annual_Convention_CE_Hours %>
+  </div>
+  <div class="field">
+    <%= f.label :Online_CE_Hours %><br>
+    <%= f.text_field :Online_CE_Hours %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.text_field :member_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

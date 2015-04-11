@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411044914) do
+ActiveRecord::Schema.define(version: 20150411061654) do
+
+  create_table "continueedus", force: :cascade do |t|
+    t.float    "Annual_Convention_CE_Hours"
+    t.float    "Online_CE_Hours"
+    t.integer  "member_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "continueedus", ["member_id"], name: "index_continueedus_on_member_id"
 
   create_table "members", force: :cascade do |t|
     t.string   "Last_Name"
@@ -37,6 +47,15 @@ ActiveRecord::Schema.define(version: 20150411044914) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  create_table "pacs", force: :cascade do |t|
+    t.float    "PAC_Contribution"
+    t.integer  "member_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "pacs", ["member_id"], name: "index_pacs_on_member_id"
 
   create_table "payments", force: :cascade do |t|
     t.string   "Pymt_Type"

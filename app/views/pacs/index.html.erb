@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pacs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Pac contribution</th>
+      <th>Member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pacs.each do |pac| %>
+      <tr>
+        <td><%= pac.id %></td>
+        <td><%= pac.PAC_Contribution %></td>
+        <td><%= pac.member %></td>
+        <td><%= link_to 'Show', pac %></td>
+        <td><%= link_to 'Edit', edit_pac_path(pac) %></td>
+        <td><%= link_to 'Destroy', pac, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pac', new_pac_path %>
