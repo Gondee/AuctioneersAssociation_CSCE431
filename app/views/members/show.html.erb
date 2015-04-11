@@ -1,114 +1,112 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>ID:</strong>
-  <%= @member.id %>
-</p>
-
-<p>
   <strong>Last name:</strong>
   <%= @member.Last_Name %>
-</p>
-
-<p>
   <strong>First name:</strong>
   <%= @member.First_Name %>
-</p>
-
-<p>
   <strong>Company:</strong>
   <%= @member.Company %>
-</p>
-
-<p>
   <strong>Tx license:</strong>
   <%= @member.TX_License %>
-</p>
-
-<p>
   <strong>Street1:</strong>
   <%= @member.Street1 %>
-</p>
-
-<p>
   <strong>City:</strong>
   <%= @member.City %>
-</p>
-
-<p>
   <strong>State:</strong>
   <%= @member.State %>
-</p>
-
-<p>
   <strong>Zip:</strong>
   <%= @member.Zip %>
-</p>
-
-<p>
   <strong>Main phone:</strong>
   <%= @member.Main_Phone %>
-</p>
-
-<p>
   <strong>Main email:</strong>
   <%= @member.Main_Email %>
-</p>
-
-<p>
   <strong>Customer type:</strong>
   <%= @member.Customer_Type %>
-</p>
-
-<p>
   <strong>Date joined taa:</strong>
   <%= @member.Date_Joined_TAA %>
-</p>
-
-<p>
   <strong>Pymt type:</strong>
   <%= @member.Pymt_Type %>
-</p>
-
-<p>
   <strong>Pymt amt:</strong>
   <%= @member.Pymt_Amt %>
-</p>
-
-<p>
   <strong>Pymt date:</strong>
   <%= @member.Pymt_Date %>
-</p>
-
-<p>
   <strong>Notes:</strong>
   <%= @member.Notes %>
-</p>
-
-<p>
   <strong>Added to webbase:</strong>
   <%= @member.Added_to_WebBase %>
-</p>
-
-<p>
   <strong>Pac contribution:</strong>
   <%= @member.PAC_Contribution %>
-</p>
-
-<p>
   <strong>Annual convention ce hours:</strong>
   <%= @member.Annual_Convention_CE_Hours %>
-</p>
-
-<p>
   <strong>Member Created At:</strong>
   <%= @member.created_at %>
-</p>
-
-<p>
   <strong>Member Updated At:</strong>
   <%= @member.updated_at %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
+
+<br><br>
+<strong>Payment Information:</strong>
+<table>
+  <thead>
+    <tr>
+      <th>Pymt_Type</th>
+      <th>Pymt_Amt</th>
+      <th>Pymt_Date</th>
+      <th>Payment Made At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.payments.each do |payment| %>
+      <tr>
+        <td><%= payment.Pymt_Type %></td>
+        <td><%= payment.Pymt_Amt %></td>
+        <td><%= payment.Pymt_Date %></td>
+        <td><%= payment.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<strong>Continue Education:</strong>
+<table>
+  <thead>
+    <tr>
+      <th>Annual convention ce hours</th>
+      <th>Online ce hours</th>
+      <th>Made At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.continueedus.each do |continueedu| %>
+      <tr>
+        <td><%= continueedu.Annual_Convention_CE_Hours %></td>
+        <td><%= continueedu.Online_CE_Hours %></td>
+        <td><%= continueedu.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<strong>Pac contribution:</strong>
+<table>
+  <thead>
+    <tr>
+      <th>Annual convention ce hours</th>
+      <th>Made At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.pacs.each do |pac| %>
+      <tr>
+        <td><%= pac.PAC_Contribution %></td>
+        <td><%= pac.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

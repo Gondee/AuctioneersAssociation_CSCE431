@@ -11,7 +11,7 @@
 #drop table table_name;
 #rails generate scaffold Payment Pymt_Type:string Pymt_Amt:float Pymt_Date:date member:references --force
 #bundle exec rake db:migrate
-
+#rake routes help
 Prefix Verb   URI Pattern                   Controller#Action
     import_members POST   /members/import(.:format)     members#import
            members GET    /members(.:format)            members#index

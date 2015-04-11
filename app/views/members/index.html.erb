@@ -58,10 +58,9 @@
         <td><%= member.Online_CE_Hours %></td>
         <td><%= member.created_at %></td>
         <td><%= member.updated_at %></td>
-        <td><%= link_to 'Show', member %></td>
+        <td><%= link_to 'Details', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Show Payments', payments_path%></td>
       </tr>
     <% end %>
   </tbody>
