@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pymt type:</strong>
+  <%= @payment.Pymt_Type %>
+</p>
+
+<p>
+  <strong>Pymt amt:</strong>
+  <%= @payment.Pymt_Amt %>
+</p>
+
+<p>
+  <strong>Pymt date:</strong>
+  <%= @payment.Pymt_Date %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @payment.member %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

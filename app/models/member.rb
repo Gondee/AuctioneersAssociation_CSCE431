@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
     
+   has_many :payments, dependent: :destroy  
    validates :Last_Name, presence: true, length: { maximum: 50 }
    validates :First_Name, presence: true, length: { maximum: 50 }
     

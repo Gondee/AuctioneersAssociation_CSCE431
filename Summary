@@ -8,3 +8,27 @@
 #remove develpment database
 #sqlite3 db/development.sqlite3
 #drop table table_name;
+#rails generate scaffold Payment Pymt_Type:string Pymt_Amt:integer Pymt_Date:date member:references --force
+#bundle exec rake db:migrate
+Prefix Verb   URI Pattern                   Controller#Action
+    import_members POST   /members/import(.:format)     members#import
+           members GET    /members(.:format)            members#index
+                   POST   /members(.:format)            members#create
+        new_member GET    /members/new(.:format)        members#new
+       edit_member GET    /members/:id/edit(.:format)   members#edit
+            member GET    /members/:id(.:format)        members#show
+                   PATCH  /members/:id(.:format)        members#update
+                   PUT    /members/:id(.:format)        members#update
+                   DELETE /members/:id(.:format)        members#destroy
+          payments GET    /payments(.:format)           payments#index
+                   POST   /payments(.:format)           payments#create
+       new_payment GET    /payments/new(.:format)       payments#new
+      edit_payment GET    /payments/:id/edit(.:format)  payments#edit
+           payment GET    /payments/:id(.:format)       payments#show
+                   PATCH  /payments/:id(.:format)       payments#update
+                   PUT    /payments/:id(.:format)       payments#update
+                   DELETE /payments/:id(.:format)       payments#destroy
+ static_pages_home GET    /static_pages/home(.:format)  static_pages#home
+ static_pages_help GET    /static_pages/help(.:format)  static_pages#help
+static_pages_about GET    /static_pages/about(.:format) static_pages#about
+              root GET    /                             static_pages#home

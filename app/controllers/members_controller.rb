@@ -10,6 +10,8 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @member = Member.find(params[:id])
+    #@payment = @member.payments.paginate(page: params[:page])
   end
 
   # GET /members/new
