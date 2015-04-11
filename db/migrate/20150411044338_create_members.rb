@@ -12,15 +12,15 @@ class CreateMembers < ActiveRecord::Migration
       t.string :Main_Phone
       t.string :Main_Email
       t.string :Customer_Type
-      t.integer :Date_Joined_TAA
+      t.date :Date_Joined_TAA
       t.string :Pymt_Type
-      t.integer :Pymt_Amt
+      t.float :Pymt_Amt
       t.date :Pymt_Date
       t.text :Notes
       t.boolean :Added_to_WebBase
-      t.integer :PAC_Contribution
-      t.integer :Annual_Convention_CE_Hours
-      t.integer :Online_CE_Hours
+      t.float :PAC_Contribution
+      t.float :Annual_Convention_CE_Hours
+      t.float :Online_CE_Hours
 
       t.timestamps null: false
     end

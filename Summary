@@ -1,4 +1,4 @@
-#rails generate scaffold Member Last_Name:string First_Name:string Company:string TX_License:integer Street1:text City:string State:string Zip:integer Main_Phone:string Main_Email:string Customer_Type:string Date_Joined_TAA:integer Pymt_Type:string Pymt_Amt:integer Pymt_Date:date Notes:text Added_to_WebBase:boolean PAC_Contribution:integer Annual_Convention_CE_Hours:integer Online_CE_Hours:integer
+#rails generate scaffold Member Last_Name:string First_Name:string Company:string TX_License:integer Street1:text City:string State:string Zip:integer Main_Phone:string Main_Email:string Customer_Type:string Date_Joined_TAA:date Pymt_Type:string Pymt_Amt:float Pymt_Date:date Notes:text Added_to_WebBase:boolean PAC_Contribution:float Annual_Convention_CE_Hours:float Online_CE_Hours:float
 #rails destroy scaffold Member
 #bundle exec rake db:migrate
 #git push heroku master
@@ -8,7 +8,7 @@
 #remove develpment database
 #sqlite3 db/development.sqlite3
 #drop table table_name;
-#rails generate scaffold Payment Pymt_Type:string Pymt_Amt:integer Pymt_Date:date member:references --force
+#rails generate scaffold Payment Pymt_Type:string Pymt_Amt:float Pymt_Date:date member:references --force
 #bundle exec rake db:migrate
 Prefix Verb   URI Pattern                   Controller#Action
     import_members POST   /members/import(.:format)     members#import

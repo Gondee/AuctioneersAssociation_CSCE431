@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :payments
+
+  resources :members
+
   resources :members do
     collection { post :import }
   end
   
-  resources :payments
-
   get 'static_pages/home'
   
   get 'static_pages/help'

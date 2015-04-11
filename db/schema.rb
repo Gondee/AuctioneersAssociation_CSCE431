@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410202618) do
+ActiveRecord::Schema.define(version: 20150411044914) do
 
   create_table "members", force: :cascade do |t|
     t.string   "Last_Name"
@@ -25,22 +25,22 @@ ActiveRecord::Schema.define(version: 20150410202618) do
     t.string   "Main_Phone"
     t.string   "Main_Email"
     t.string   "Customer_Type"
-    t.integer  "Date_Joined_TAA"
+    t.date     "Date_Joined_TAA"
     t.string   "Pymt_Type"
-    t.integer  "Pymt_Amt"
+    t.float    "Pymt_Amt"
     t.date     "Pymt_Date"
     t.text     "Notes"
     t.boolean  "Added_to_WebBase"
-    t.integer  "PAC_Contribution"
-    t.integer  "Annual_Convention_CE_Hours"
-    t.integer  "Online_CE_Hours"
+    t.float    "PAC_Contribution"
+    t.float    "Annual_Convention_CE_Hours"
+    t.float    "Online_CE_Hours"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   create_table "payments", force: :cascade do |t|
     t.string   "Pymt_Type"
-    t.integer  "Pymt_Amt"
+    t.float    "Pymt_Amt"
     t.date     "Pymt_Date"
     t.integer  "member_id"
     t.datetime "created_at", null: false

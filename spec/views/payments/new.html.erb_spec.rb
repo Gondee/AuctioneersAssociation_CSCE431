@@ -4,7 +4,7 @@ RSpec.describe "payments/new", type: :view do
   before(:each) do
     assign(:payment, Payment.new(
       :Pymt_Type => "MyString",
-      :Pymt_Amt => 1,
+      :Pymt_Amt => 1.5,
       :member => nil
     ))
   end

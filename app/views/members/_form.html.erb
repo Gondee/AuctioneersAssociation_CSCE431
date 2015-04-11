@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %><br>
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
     <%= f.label :Last_Name %><br>
     <%= f.text_field :Last_Name %>
   </div>
@@ -61,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label :Date_Joined_TAA %><br>
-    <%= f.number_field :Date_Joined_TAA %>
+    <%= f.date_select :Date_Joined_TAA %>
   </div>
   <div class="field">
     <%= f.label :Pymt_Type %><br>
@@ -69,7 +65,7 @@
   </div>
   <div class="field">
     <%= f.label :Pymt_Amt %><br>
-    <%= f.number_field :Pymt_Amt %>
+    <%= f.text_field :Pymt_Amt %>
   </div>
   <div class="field">
     <%= f.label :Pymt_Date %><br>
@@ -85,15 +81,15 @@
   </div>
   <div class="field">
     <%= f.label :PAC_Contribution %><br>
-    <%= f.number_field :PAC_Contribution %>
+    <%= f.text_field :PAC_Contribution %>
   </div>
   <div class="field">
     <%= f.label :Annual_Convention_CE_Hours %><br>
-    <%= f.number_field :Annual_Convention_CE_Hours %>
+    <%= f.text_field :Annual_Convention_CE_Hours %>
   </div>
   <div class="field">
     <%= f.label :Online_CE_Hours %><br>
-    <%= f.number_field :Online_CE_Hours %>
+    <%= f.text_field :Online_CE_Hours %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -4,7 +4,7 @@ RSpec.describe "payments/show", type: :view do
   before(:each) do
     @payment = assign(:payment, Payment.create!(
       :Pymt_Type => "Pymt Type",
-      :Pymt_Amt => 1,
+      :Pymt_Amt => 1.5,
       :member => nil
     ))
   end
@@ -12,7 +12,7 @@ RSpec.describe "payments/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Pymt Type/)
-    expect(rendered).to match(/1/)
+    expect(rendered).to match(/1.5/)
     expect(rendered).to match(//)
   end
 end
