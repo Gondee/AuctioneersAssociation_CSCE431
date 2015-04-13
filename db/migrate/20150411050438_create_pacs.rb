@@ -7,5 +7,6 @@ class CreatePacs < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :pacs, :members
+    add_index :pacs, [:member_id, :created_at]
   end
 end
