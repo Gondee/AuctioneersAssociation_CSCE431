@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.string :Pymt_Type
       t.float :Pymt_Amt
       t.date :Pymt_Date
-      t.integer :references, index: true
+      t.references :member, index: true
 
       t.timestamps null: false
     end
