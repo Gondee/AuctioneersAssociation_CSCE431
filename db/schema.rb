@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150411082904) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_index "continueedus", ["member_id", "created_at"], name: "index_continueedus_on_member_id_and_created_at"
   add_index "continueedus", ["member_id"], name: "index_continueedus_on_member_id"
 
   create_table "members", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150411082904) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "pacs", ["member_id", "created_at"], name: "index_pacs_on_member_id_and_created_at"
   add_index "pacs", ["member_id"], name: "index_pacs_on_member_id"
 
   create_table "payments", force: :cascade do |t|
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150411082904) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "payments", ["member_id", "created_at"], name: "index_payments_on_member_id_and_created_at"
   add_index "payments", ["member_id"], name: "index_payments_on_member_id"
 
 end

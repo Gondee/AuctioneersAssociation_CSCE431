@@ -4,16 +4,16 @@ class Member < ActiveRecord::Base
    has_many :pacs, dependent: :destroy
    has_many :continueedus, dependent: :destroy
    has_secure_password
-   #validates :password, length: { minimum: 6 }, confirmation: true
-   #validates :password_confirmation, presence: true
+   validates :password, length: { minimum: 6 }, confirmation: true, allow_blank: true
+   validates :password_confirmation, presence: true, allow_blank: true
    validates :Last_Name, presence: true, length: { maximum: 50 }
    validates :First_Name, presence: true, length: { maximum: 50 }
     
    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
    #validates :Main_Email, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
     
-   #VALID_ZIP_REGEX=/\A[0-9]+\z/
-   #validates :Zip, length: { minimum: 5 },  format: { with: VALID_ZIP_REGEX }, allow_blank: true
+   VALID_ZIP_REGEX=/\A[0-9]+\z/
+   validates :Zip, length: { minimum: 5 },  format: { with: VALID_ZIP_REGEX }, allow_blank: true
    
    #VALID_PHONE_REGEX=/\A[0-9]+\z/
    #validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
@@ -43,6 +43,9 @@ class Member < ActiveRecord::Base
            row_hash["Added_to_WebBase"] = false
          end
        end
+       my_inital_password = BCrypt::Password.create("123456")
+       password_hash={:password_digest=>my_inital_password}
+       row_hash=row_hash.merge(password_hash)
        Member.create! row_hash
      end
    end
