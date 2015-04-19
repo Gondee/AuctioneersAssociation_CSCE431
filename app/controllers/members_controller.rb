@@ -7,6 +7,10 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    respond_to do |format|
+    format.html
+    format.csv { send_data @members.to_csv, :filename => "export_file.csv" }
+  end
   end
 
   # GET /members/1

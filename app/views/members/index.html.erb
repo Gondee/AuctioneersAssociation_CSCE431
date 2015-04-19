@@ -1,3 +1,16 @@
+<h2>Import Members From CSV</h2>
+<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
+<%= form_tag import_members_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<h2>Export Members to CSV</h2>
+<p>
+  <%= button_to "Download to CSV", members_path(format: "csv"), method: :get %>
+</p>
+<br>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Members</h1>
@@ -69,10 +82,3 @@
 <br>
 
 <%= link_to 'New Member', new_member_path %>
-
-<h2>Import Members From CSV</h2>
-<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
-<%= form_tag import_members_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
