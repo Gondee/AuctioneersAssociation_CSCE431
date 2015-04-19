@@ -29,25 +29,59 @@ class Member < ActiveRecord::Base
    #Import CSV forms
    def self.import(file)
      CSV.foreach(file.path, headers: true) do |row|
-       row_hash = row.to_hash
-       if row_hash["Pymt_Amt"] != nil
-         row_hash["Pymt_Amt"] = row_hash["Pymt_Amt"].gsub(/\D/,'').to_i
+       import_hash = row.to_hash
+       if import_hash["Pymt_Amt"] != nil
+         import_hash["Pymt_Amt"] = import_hash["Pymt_Amt"].gsub(/\D/,'').to_i
        end
-       if row_hash["PAC_Contribution"] != nil
-         row_hash["PAC_Contribution"] = row_hash["PAC_Contribution"].gsub(/\D/,'').to_i
+       if import_hash["PAC_Contribution"] != nil
+         import_hash["PAC_Contribution"] = import_hash["PAC_Contribution"].gsub(/\D/,'').to_i
        end
-       if row_hash["Added_to_WebBase"] != nil
-         if row_hash["Added_to_WebBase"] == "Y"
-           row_hash["Added_to_WebBase"] = true
+       if import_hash["Added_to_WebBase"] != nil
+         if import_hash["Added_to_WebBase"] == "Y"
+           import_hash["Added_to_WebBase"] = true
          else
-           row_hash["Added_to_WebBase"] = false
+           import_hash["Added_to_WebBase"] = false
          end
        end
-       my_inital_password = BCrypt::Password.create("123456")
-       password_hash={:password_digest=>my_inital_password}
-       row_hash=row_hash.merge(password_hash)
-       Member.create! row_hash
+       
+       if import_hash["password_digest"] == nil
+        my_inital_password = BCrypt::Password.create("123456")
+        password_hash={:password_digest=>my_inital_password}
+        import_hash=import_hash.merge(password_hash)
+       end
+       
+       member_hash = Hash.new()
+       member_hash = import_hash
+       Member.create! member_hash
+       
+       payment_hash = Hash.new()
+       payment_hash["member"] = Member.last
+       payment_hash["Pymt_Type"] = import_hash["Pymt_Type"]
+       payment_hash["Pymt_Amt"] = import_hash["Pymt_Amt"]
+       payment_hash["Pymt_Date"] = import_hash["Pymt_Date"]
+       Payment.create! payment_hash
+       
+       pac_hash = Hash.new()
+       pac_hash["member"] = Member.last
+       pac_hash["PAC_Contribution"] = import_hash["PAC_Contribution"]
+       Pac.create! pac_hash
+
+       ce_hash = Hash.new()
+       ce_hash["member"] = Member.last
+       ce_hash["Annual_Convention_CE_Hours"] = import_hash["Annual_Convention_CE_Hours"]
+       ce_hash["Online_CE_Hours"] = import_hash["Online_CE_Hours"]
+       Continueedu.create! ce_hash
      end
    end
    
+   def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << column_names
+        all.each do |member|
+          csv << member.attributes.values_at(*column_names)
+        end
+      end
+   end
+
+
 end

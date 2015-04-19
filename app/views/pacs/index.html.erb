@@ -30,9 +30,3 @@
 
 <%= link_to 'New Pac', new_pac_path %>
 
-<h2>Import Pacs From CSV</h2>
-<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
-<%= form_tag import_pacs_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
