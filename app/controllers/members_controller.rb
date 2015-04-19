@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-  
+  before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
+  before_action :correct_member,   only: [:show, :edit, :update]
+  before_action :admin_member,     only: :destroy
   # GET /members
   # GET /members.json
   def index
@@ -27,12 +29,12 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-
     respond_to do |format|
       if @member.save
         log_in @member
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
         format.json { render :show, status: :created, location: @member }
+        redirect_back_or user #may be unnessessary
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -59,7 +61,7 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      format.html { redirect_to members_url, notice: 'Member was successfully Deleted.' }
       format.json { head :no_content }
     end
   end
@@ -80,4 +82,25 @@ class MembersController < ApplicationController
     def member_params
       params.require(:member).permit(:Last_Name, :First_Name, :Company, :TX_License, :Street1, :City, :State, :Zip, :Main_Phone, :Main_Email, :Customer_Type, :Date_Joined_TAA, :Pymt_Type, :Pymt_Amt, :Pymt_Date, :Notes, :Added_to_WebBase, :PAC_Contribution, :Annual_Convention_CE_Hours, :Online_CE_Hours, :password, :password_confirmation)
     end
+    
+   # Before filters
+
+    # Confirms a logged-in user.
+    def logged_in_member
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    # Confirms the correct user.
+    def correct_member
+      @mbmer = Member.find(params[:id])
+      redirect_to(root_url) unless current_user?(@member) #Functionality for active/inactive will probably go here
+    end
+    # Confirms an admin user.
+    def admin_member
+      redirect_to(root_url) unless current_user.admin?
+    end
+    
 end
