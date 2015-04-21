@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
   before_action :correct_member,   only: [:show, :edit, :update]
-  before_action :admin_member,     only: :destroy
+  before_action :admin_member,     only: [:index, :destroy]
   # GET /members
   # GET /members.json
   def index
@@ -38,7 +38,7 @@ class MembersController < ApplicationController
         log_in @member
         format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
         format.json { render :show, status: :created, location: @member }
-        redirect_back_or user #may be unnessessary
+        redirect_back_or member #may be unnessessary
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
