@@ -38,7 +38,7 @@ class MembersController < ApplicationController
         log_in @member
         format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
         format.json { render :show, status: :created, location: @member }
-        redirect_back_or member #may be unnessessary
+        #redirect_back_or member #may be unnessessary
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -100,7 +100,7 @@ class MembersController < ApplicationController
     # Confirms the correct user.
     def correct_member
       @mbmer = Member.find(params[:id])
-      redirect_to(root_url) unless current_user?(@member) #Functionality for active/inactive will probably go here
+      redirect_to(root_url) unless current_user?(@member) 
     end
     # Confirms an admin user.
     def admin_member
