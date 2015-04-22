@@ -38,7 +38,7 @@ class MembersController < ApplicationController
         log_in @member
         format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
         format.json { render :show, status: :created, location: @member }
-        redirect_back_or member #may be unnessessary
+        #redirect_back_or member #may be unnessessary
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
