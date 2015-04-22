@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
      if member && member.authenticate(params[:session][:password])
         if(active?)
         log_in member
-        redirect_to member
+        redirect_to @member
         else
           #Not active member 
           log_in member
