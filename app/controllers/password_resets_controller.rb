@@ -20,6 +20,19 @@ class PasswordResetsController < ApplicationController
     end
   end
   
+  def update
+    if password_blank?
+      flash.now[:danger] = "Password can't be blank"
+      render 'edit'
+    elsif @member.update_attributes(member_params)
+      log_in @member
+      flash[:success] = "Password has been reset."
+      redirect_to @member
+    else
+      render 'edit'
+    end
+  end
+  
   private
 
   def member_params
@@ -52,21 +65,6 @@ class PasswordResetsController < ApplicationController
     end
   end
   
-  
-  
-  def update
-    if password_blank?
-      flash.now[:danger] = "Password can't be blank"
-      render 'edit'
-    elsif @member.update_attributes(member_params)
-      log_in @member
-      flash[:success] = "Password has been reset."
-      redirect_to @member
-    else
-      render 'edit'
-    end
-  end
-
 
   def edit
   end
