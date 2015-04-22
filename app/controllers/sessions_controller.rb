@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
      member = Member.find_by(Main_Email: params[:session][:Main_Email])
      @memberid = Member.find_by(Main_Email: params[:session][:Main_Email])
      if member && member.authenticate(params[:session][:password])
-        if(active?)
+      if(active?)
         log_in member
         redirect_to member
-        else
+      else
           #Not active member 
-          log_in member
-          redirect_to new_payment_path  #Don't have a payment system setup
-        end 
+        log_in member
+        redirect_to new_payment_path(member)  #Don't have a payment system setup
+      end 
      else
        flash.now[:danger] = 'Invalid email/password combination'
        render 'new'

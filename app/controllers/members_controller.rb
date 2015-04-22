@@ -36,7 +36,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.save
         log_in @member
-        format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
+        format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile.' }
         format.json { render :show, status: :created, location: @member }
         #redirect_back_or member #may be unnessessary
       else
