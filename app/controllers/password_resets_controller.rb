@@ -35,7 +35,7 @@ class PasswordResetsController < ApplicationController
 
   
   def get_member
-      @member = Member.find_by(email: params[:Main_Email])
+      @member = Member.find_by(Main_Email: params[:Main_Email])
   end
   
   def valid_member
