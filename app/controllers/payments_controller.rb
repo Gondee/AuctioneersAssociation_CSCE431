@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-
+  helper_method :current_user
   # GET /payments
   # GET /payments.json
   def index
@@ -13,11 +13,14 @@ class PaymentsController < ApplicationController
   end
   
   def show_pym_this_user
+    #@payment = current_user.Payment #I believe this is what we want -JK
   end
 
   # GET /payments/new
   def new
     @payment = Payment.new
+    #@payment = Payment.new :member_id => current_user.id #Depending on the amount, this will be used to auto fill. -JK
+    
   end
 
   # GET /payments/1/edit
@@ -28,7 +31,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-
+    @payment.member_id = current_user.id #Creates the new payment as the active session user!
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
@@ -78,6 +81,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:Pymt_Type, :Pymt_Amt, :Pymt_Date, :member_id)
+      params.require(:payment).permit(:Pymt_Type, :Pymt_Amt)  
     end
 end

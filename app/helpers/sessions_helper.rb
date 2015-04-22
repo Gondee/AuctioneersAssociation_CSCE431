@@ -7,6 +7,10 @@ module SessionsHelper
   def current_user
     @current_member ||= Member.find_by(id: session[:member_id])
   end
+  #returns the current member ID
+  def current_member_id 
+   current_user.member_id
+  end 
    # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?  #Reference function above. Never got its name changed to member, leaving for dependency sake

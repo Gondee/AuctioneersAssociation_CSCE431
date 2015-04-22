@@ -100,7 +100,7 @@ class MembersController < ApplicationController
     # Confirms the correct user.
     def correct_member
       @mbmer = Member.find(params[:id])
-      redirect_to(root_url) unless current_user?(@member) #Functionality for active/inactive will probably go here
+      redirect_to(root_url) unless current_user?(@member) 
     end
     # Confirms an admin user.
     def admin_member
