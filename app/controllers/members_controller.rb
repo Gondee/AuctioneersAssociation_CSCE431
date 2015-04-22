@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
   before_action :correct_member,   only: [:show, :edit, :update]
-  before_action :admin_member,     only: [:index, :destroy]
+  before_action :admin_member,     only: [:destroy]
   # GET /members
   # GET /members.json
   def index
