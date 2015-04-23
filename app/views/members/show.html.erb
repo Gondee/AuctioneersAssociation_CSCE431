@@ -1,6 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+  <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-6">.col-xs-6</div>
+  <div class="col-xs-6">.col-xs-6</div>
+</div>
+
   <strong>Last name:</strong>
   <%= @member.Last_Name %>
   <strong>First name:</strong>
@@ -25,25 +43,17 @@
   <%= @member.Customer_Type %>
   <strong>Date joined taa:</strong>
   <%= @member.Date_Joined_TAA %>
-  <strong>Pymt type:</strong>
-  <%= @member.Pymt_Type %>
-  <strong>Pymt amt:</strong>
-  <%= @member.Pymt_Amt %>
-  <strong>Pymt date:</strong>
-  <%= @member.Pymt_Date %>
+
   <strong>Notes:</strong>
   <%= @member.Notes %>
   <strong>Added to webbase:</strong>
   <%= @member.Added_to_WebBase %>
-  <strong>Pac contribution:</strong>
-  <%= @member.PAC_Contribution %>
-  <strong>Annual convention ce hours:</strong>
-  <%= @member.Annual_Convention_CE_Hours %>
+
   <strong>Member Created At:</strong>
   <%= @member.created_at %>
   <strong>Member Updated At:</strong>
   <%= @member.updated_at %>
-</p>
+
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
