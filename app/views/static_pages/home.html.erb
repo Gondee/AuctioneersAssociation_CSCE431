@@ -5,17 +5,32 @@
   </head>
   <body>
     <h1>Auctioneer Association</h1>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Help",   '#' %></li>
+            <li><%= link_to "Log in", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
     <p>
-      <a href="https://606project-cloverzh-7.c9.io/members">Cloud9_Members</a>
+      <a href="https://auctioneersassociation1-orlandochen0308.c9.io/members">Cloud9_Members</a>
       <a href="https://devops.herokuapp.com/members">Heroku_Members</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/payments">Cloud9_Payments</a>
+      <a href="https://auctioneersassociation1-orlandochen0308.c9.io/payments">Cloud9_Payments</a>
       <a href="https://devops.herokuapp.com/payments">Heroku_Payments</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/pacs">Cloud9_PAC</a>
+      <a href="https://auctioneersassociation1-orlandochen0308.c9.io/pacs">Cloud9_PAC</a>
       <a href="https://devops.herokuapp.com/pacs">Heroku_PAC</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/continueedus">Cloud9_CE</a>
+      <a href="https://auctioneersassociation1-orlandochen0308.c9.io/continueedus">Cloud9_CE</a>
       <a href="https://devops.herokuapp.com/continueedus">Heroku_CE</a>
       <br>
       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
