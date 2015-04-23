@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
   before_action :correct_member,   only: [:show, :edit, :update]
-  before_action :admin_member,     only: [:index, :destroy]
+  before_action :admin_member,     only: [:destroy]
   # GET /members
   # GET /members.json
   def index
@@ -36,9 +36,9 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.save
         log_in @member
-        format.html { redirect_to @member, notice: 'Welcome to the Texas Auctioneers Association!.' }
+        format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile.' }
         format.json { render :show, status: :created, location: @member }
-        redirect_back_or member #may be unnessessary
+        #redirect_back_or member #may be unnessessary
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -100,7 +100,7 @@ class MembersController < ApplicationController
     # Confirms the correct user.
     def correct_member
       @mbmer = Member.find(params[:id])
-      redirect_to(root_url) unless current_user?(@member) #Functionality for active/inactive will probably go here
+      redirect_to(root_url) unless current_user?(@member) 
     end
     # Confirms an admin user.
     def admin_member
