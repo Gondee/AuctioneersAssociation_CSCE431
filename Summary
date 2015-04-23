@@ -3,7 +3,7 @@
 #bundle exec rake db:migrate
 #git push heroku master
 #heroku git:remote -a devops
-#heroku rake db:migrate
+#heroku run rake db:migrate
 #heroku pg:reset DATABASE
 #Roll Back database: bundle exec rake db:rollback
 #remove develpment database
@@ -12,25 +12,65 @@
 #rails generate scaffold Payment Pymt_Type:string Pymt_Amt:float Pymt_Date:date member:references --force
 #bundle exec rake db:migrate
 #rake routes help
-Prefix Verb   URI Pattern                   Controller#Action
-    import_members POST   /members/import(.:format)     members#import
-           members GET    /members(.:format)            members#index
-                   POST   /members(.:format)            members#create
-        new_member GET    /members/new(.:format)        members#new
-       edit_member GET    /members/:id/edit(.:format)   members#edit
-            member GET    /members/:id(.:format)        members#show
-                   PATCH  /members/:id(.:format)        members#update
-                   PUT    /members/:id(.:format)        members#update
-                   DELETE /members/:id(.:format)        members#destroy
-          payments GET    /payments(.:format)           payments#index
-                   POST   /payments(.:format)           payments#create
-       new_payment GET    /payments/new(.:format)       payments#new
-      edit_payment GET    /payments/:id/edit(.:format)  payments#edit
-           payment GET    /payments/:id(.:format)       payments#show
-                   PATCH  /payments/:id(.:format)       payments#update
-                   PUT    /payments/:id(.:format)       payments#update
-                   DELETE /payments/:id(.:format)       payments#destroy
- static_pages_home GET    /static_pages/home(.:format)  static_pages#home
- static_pages_help GET    /static_pages/help(.:format)  static_pages#help
-static_pages_about GET    /static_pages/about(.:format) static_pages#about
-              root GET    /                             static_pages#home
+              Prefix Verb   URI Pattern                         Controller#Action
+ password_resets_new GET    /password_resets/new(.:format)      password_resets#new
+password_resets_edit GET    /password_resets/edit(.:format)     password_resets#edit
+ import_continueedus POST   /continueedus/import(.:format)      continueedus#import
+        continueedus GET    /continueedus(.:format)             continueedus#index
+                     POST   /continueedus(.:format)             continueedus#create
+     new_continueedu GET    /continueedus/new(.:format)         continueedus#new
+    edit_continueedu GET    /continueedus/:id/edit(.:format)    continueedus#edit
+         continueedu GET    /continueedus/:id(.:format)         continueedus#show
+                     PATCH  /continueedus/:id(.:format)         continueedus#update
+                     PUT    /continueedus/:id(.:format)         continueedus#update
+                     DELETE /continueedus/:id(.:format)         continueedus#destroy
+        sessions_new GET    /sessions/new(.:format)             sessions#new
+         import_pacs POST   /pacs/import(.:format)              pacs#import
+                pacs GET    /pacs(.:format)                     pacs#index
+                     POST   /pacs(.:format)                     pacs#create
+             new_pac GET    /pacs/new(.:format)                 pacs#new
+            edit_pac GET    /pacs/:id/edit(.:format)            pacs#edit
+                 pac GET    /pacs/:id(.:format)                 pacs#show
+                     PATCH  /pacs/:id(.:format)                 pacs#update
+                     PUT    /pacs/:id(.:format)                 pacs#update
+                     DELETE /pacs/:id(.:format)                 pacs#destroy
+     import_payments POST   /payments/import(.:format)          payments#import
+            payments GET    /payments(.:format)                 payments#index
+                     POST   /payments(.:format)                 payments#create
+         new_payment GET    /payments/new(.:format)             payments#new
+        edit_payment GET    /payments/:id/edit(.:format)        payments#edit
+             payment GET    /payments/:id(.:format)             payments#show
+                     PATCH  /payments/:id(.:format)             payments#update
+                     PUT    /payments/:id(.:format)             payments#update
+                     DELETE /payments/:id(.:format)             payments#destroy
+      import_members POST   /members/import(.:format)           members#import
+             members GET    /members(.:format)                  members#index
+                     POST   /members(.:format)                  members#create
+          new_member GET    /members/new(.:format)              members#new
+         edit_member GET    /members/:id/edit(.:format)         members#edit
+              member GET    /members/:id(.:format)              members#show
+                     PATCH  /members/:id(.:format)              members#update
+                     PUT    /members/:id(.:format)              members#update
+                     DELETE /members/:id(.:format)              members#destroy
+                     POST   /members/import(.:format)           members#import
+                     GET    /members(.:format)                  members#index
+                     POST   /members(.:format)                  members#create
+                     GET    /members/new(.:format)              members#new
+                     GET    /members/:id/edit(.:format)         members#edit
+                     GET    /members/:id(.:format)              members#show
+                     PATCH  /members/:id(.:format)              members#update
+                     PUT    /members/:id(.:format)              members#update
+                     DELETE /members/:id(.:format)              members#destroy
+   static_pages_home GET    /static_pages/home(.:format)        static_pages#home
+   static_pages_help GET    /static_pages/help(.:format)        static_pages#help
+  static_pages_about GET    /static_pages/about(.:format)       static_pages#about
+                root GET    /                                   static_pages#home
+              signup GET    /signup(.:format)                   members#new
+               login GET    /login(.:format)                    sessions#new
+                     POST   /login(.:format)                    sessions#create
+              logout DELETE /logout(.:format)                   sessions#destroy
+     password_resets POST   /password_resets(.:format)          password_resets#create
+  new_password_reset GET    /password_resets/new(.:format)      password_resets#new
+ edit_password_reset GET    /password_resets/:id/edit(.:format) password_resets#edit
+      password_reset PATCH  /password_resets/:id(.:format)      password_resets#update
+                     PUT    /password_resets/:id(.:format)      password_resets#update
