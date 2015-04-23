@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   resources :continueedus do
     collection { post :import }
   end
@@ -37,5 +41,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   
   delete 'logout'  => 'sessions#destroy'
+  
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
 end

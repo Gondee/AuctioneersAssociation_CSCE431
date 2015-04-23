@@ -6,16 +6,16 @@
   <body>
     <h1>Auctioneer Association</h1>
     <p>
-      <a href="https://606project-cloverzh-7.c9.io/members">Cloud9_Members</a>
+      <a href="https://rails-tutorial-wzlxjtu.c9.io/members">Cloud9_Members</a>
       <a href="https://devops.herokuapp.com/members">Heroku_Members</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/payments">Cloud9_Payments</a>
+      <a href="https://rails-tutorial-wzlxjtu.c9.io/payments">Cloud9_Payments</a>
       <a href="https://devops.herokuapp.com/payments">Heroku_Payments</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/pacs">Cloud9_PAC</a>
+      <a href="https://rails-tutorial-wzlxjtu.c9.io/pacs">Cloud9_PAC</a>
       <a href="https://devops.herokuapp.com/pacs">Heroku_PAC</a>
       <br>
-      <a href="https://606project-cloverzh-7.c9.io/continueedus">Cloud9_CE</a>
+      <a href="https://rails-tutorial-wzlxjtu.c9.io/continueedus">Cloud9_CE</a>
       <a href="https://devops.herokuapp.com/continueedus">Heroku_CE</a>
       <br>
       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
@@ -23,3 +23,10 @@
     </p>
   </body>
 </html>
+
+<h2>Import Members From CSV</h2>
+<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
+<%= form_tag import_members_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
