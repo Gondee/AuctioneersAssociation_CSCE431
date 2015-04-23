@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
   before_action :correct_member,   only: [:show, :edit, :update]
-  before_action :admin_member,     only: [:destroy]
+  before_action :admin_member,     only: [:destroy, :index]
   # GET /members
   # GET /members.json
   def index
@@ -100,11 +100,19 @@ class MembersController < ApplicationController
     # Confirms the correct user.
     def correct_member
       @mbmer = Member.find(params[:id])
-      redirect_to(root_url) unless current_user?(@member) 
+      redirect_to(root_url) unless current_user?(@member) || current_user_admin?
     end
     # Confirms an admin user.
     def admin_member
-      redirect_to(root_url) unless current_user.admin?
+      if !logged_in?
+        flash[:notice] = "Please log in first."
+        redirect_to login_url
+      else
+        if !current_user_admin?
+          flash[:notice] = "Please log in as Admin."
+          redirect_to login_url
+        end
+      end
     end
     
 end

@@ -37,4 +37,8 @@ module SessionsHelper
     member == current_user
   end
   
+  def current_user_admin?
+    current_user.admin
+  end
+  
 end

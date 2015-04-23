@@ -8,13 +8,12 @@ class SessionsController < ApplicationController
      @memberid = Member.find_by(Main_Email: params[:session][:Main_Email])
      if member && member.authenticate(params[:session][:password])
        #If log in as admin, redirect to administrating members page. Otherwise, redirect to user info page 
+       log_in member
         if !admin?
           if(active?)
-            log_in member
             redirect_to member
           else
             #Not active member 
-            log_in member
             redirect_to new_payment_path(member)  #Don't have a payment system setup
           end 
         else
