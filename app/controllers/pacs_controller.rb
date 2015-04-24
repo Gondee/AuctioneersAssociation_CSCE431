@@ -4,7 +4,7 @@ class PacsController < ApplicationController
   # GET /pacs
   # GET /pacs.json
   def index
-    if params[:format] == 'AllPacs'
+    if params[:format] == 'AllPacs' || params[:format] == nil
       @pacs = Pac.all
     else
       @pacs = Pac.where("member_id = #{params[:format]}")
