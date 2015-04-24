@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    if params[:format] == 'AllPayments' || params[:format] == nil
+    if params[:format] == nil
       @payments = Payment.all
     else
       @payments = Payment.where("member_id = #{params[:format]}")
