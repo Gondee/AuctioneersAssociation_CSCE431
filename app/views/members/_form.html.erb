@@ -11,87 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :Last_Name %><br>
-    <%= f.text_field :Last_Name %>
-  </div>
-  <div class="field">
-    <%= f.label :First_Name %><br>
-    <%= f.text_field :First_Name %>
-  </div>
-  <div class="field">
-    <%= f.label :Company %><br>
-    <%= f.text_field :Company %>
-  </div>
-  <div class="field">
-    <%= f.label :TX_License %><br>
-    <%= f.number_field :TX_License %>
-  </div>
-  <div class="field">
-    <%= f.label :Street1 %><br>
-    <%= f.text_area :Street1 %>
-  </div>
-  <div class="field">
-    <%= f.label :City %><br>
-    <%= f.text_field :City %>
-  </div>
-  <div class="field">
-    <%= f.label :State %><br>
-    <%= f.text_field :State %>
-  </div>
-  <div class="field">
-    <%= f.label :Zip %><br>
-    <%= f.number_field :Zip %>
-  </div>
-  <div class="field">
-    <%= f.label :Main_Phone %><br>
-    <%= f.text_field :Main_Phone %>
-  </div>
-  <div class="field">
-    <%= f.label :Main_Email %><br>
-    <%= f.text_field :Main_Email %>
-  </div>
-  <div class="field">
-    <%= f.label :Customer_Type %><br>
-    <%= f.text_field :Customer_Type %>
-  </div>
-  <div class="field">
-    <%= f.label :Date_Joined_TAA %><br>
-    <%= f.date_select :Date_Joined_TAA %>
-  </div>
-  <div class="field">
-    <%= f.label :Pymt_Type %><br>
-    <%= f.text_field :Pymt_Type %>
-  </div>
-  <div class="field">
-    <%= f.label :Pymt_Amt %><br>
-    <%= f.text_field :Pymt_Amt %>
-  </div>
-  <div class="field">
-    <%= f.label :Pymt_Date %><br>
-    <%= f.date_select :Pymt_Date %>
-  </div>
-  <div class="field">
-    <%= f.label :Notes %><br>
-    <%= f.text_area :Notes %>
-  </div>
-  <div class="field">
-    <%= f.label :Added_to_WebBase %><br>
-    <%= f.check_box :Added_to_WebBase %>
-  </div>
-  <div class="field">
-    <%= f.label :PAC_Contribution %><br>
-    <%= f.text_field :PAC_Contribution %>
-  </div>
-  <div class="field">
-    <%= f.label :Annual_Convention_CE_Hours %><br>
-    <%= f.text_field :Annual_Convention_CE_Hours %>
-  </div>
-  <div class="field">
-    <%= f.label :Online_CE_Hours %><br>
-    <%= f.text_field :Online_CE_Hours %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<h3 class="text-info text-center">
+						Update Your Information
+					</h3>
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+						  <div class="field">
+              </div>
+							 <label for="Last_Name" class="col-sm-2 control-label">Last Name</label>
+							<div class="col-sm-10">
+								<%= f.text_field :Last_Name, class: 'form-control'%>
+								</input>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">First Name</label>
+							<div class="col-sm-10">
+								<%= f.text_field :First_Name, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Company</label>
+							<div class="col-sm-10">
+								<%= f.text_field :Company, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">TX Licence (If Applicable)</label>
+							<div class="col-sm-10">
+								<%= f.number_field :TX_License, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Street Address</label>
+							<div class="col-sm-10">
+								<%= f.text_area :Street1, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">City</label>
+							<div class="col-sm-10">
+								<%= f.text_field :City, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">State</label>
+							<div class="col-sm-10">
+								<%= f.text_field :State , class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Zip Code</label>
+							<div class="col-sm-10">
+								<%= f.number_field :Zip , class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Primary Phone Number</label>
+							<div class="col-sm-10">
+								<%= f.text_field :Main_Phone , class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Primary Email (Used to Login)*</label>
+							<div class="col-sm-10">
+								<%= f.text_field :Main_Email , class: 'form-control' %>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label for="First_Name" class="col-sm-2 control-label">Customer Type</label>
+							<div class="col-sm-10">
+								<%= f.text_field :Customer_Type , class: 'form-control' %>
+							</div>
+						</div>
+					 <div class="actions">
+            <%= f.submit %>
+          </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+  
 <% end %>
