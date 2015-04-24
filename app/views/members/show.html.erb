@@ -59,68 +59,14 @@
 <%= link_to 'Back', members_path %>
 
 
-<br><br>
-<strong>Payment Information:</strong>
-<table>
-  <thead>
-    <tr>
-      <th>Pymt_Type</th>
-      <th>Pymt_Amt</th>
-      <th>Pymt_Date</th>
-      <th>Payment Made At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @member.payments.each do |payment| %>
-      <tr>
-        <td><%= payment.Pymt_Type %></td>
-        <td><%= payment.Pymt_Amt %></td>
-        <td><%= payment.Pymt_Date %></td>
-        <td><%= payment.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br />
+<strong><%= link_to 'Payment Information', payments_path(@member) %><strong>
 
-<br><br>
-<strong>Continue Education:</strong>
-<table>
-  <thead>
-    <tr>
-      <th>Annual convention ce hours</th>
-      <th>Online ce hours</th>
-      <th>Made At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @member.continueedus.each do |continueedu| %>
-      <tr>
-        <td><%= continueedu.Annual_Convention_CE_Hours %></td>
-        <td><%= continueedu.Online_CE_Hours %></td>
-        <td><%= continueedu.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br />
+<strong><%= link_to 'Continue Education', continueedus_path(@member) %></strong>
 
-<br><br>
-<strong>Pac contribution:</strong>
-<table>
-  <thead>
-    <tr>
-      <th>Annual convention ce hours</th>
-      <th>Made At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @member.pacs.each do |pac| %>
-      <tr>
-        <td><%= pac.PAC_Contribution %></td>
-        <td><%= pac.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br />
+<strong><%= link_to 'PAC Contribution', pacs_path(@member) %></strong>
 
 <li>
    <%= link_to "Log out", logout_path, method: "delete" %>
