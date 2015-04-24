@@ -4,9 +4,13 @@ class PacsController < ApplicationController
   # GET /pacs
   # GET /pacs.json
   def index
-    @pacs = Pac.all
+    if params[:format] == 'AllPacs'
+      @pacs = Pac.all
+    else
+      @pacs = Pac.where("member_id = #{params[:format]}")
+    end
   end
-
+  
   # GET /pacs/1
   # GET /pacs/1.json
   def show

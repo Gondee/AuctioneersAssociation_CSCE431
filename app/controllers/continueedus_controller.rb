@@ -4,9 +4,13 @@ class ContinueedusController < ApplicationController
   # GET /continueedus
   # GET /continueedus.json
   def index
-    @continueedus = Continueedu.all
+    if params[:format] == 'AllContinueedus'
+      @continueedus = Continueedu.all
+    else
+      @continueedus = Continueedu.where("member_id = #{params[:format]}")
+    end
   end
-
+  
   # GET /continueedus/1
   # GET /continueedus/1.json
   def show
