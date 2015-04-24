@@ -19,66 +19,79 @@
   <div class="col-xs-6">.col-xs-6</div>
 </div>
 
+<p>
+<strong><%= link_to 'Payment Information', payments_path(@member) %><strong>
+&nbsp
+<strong><%= link_to 'Continue Education', continueedus_path(@member) %></strong>
+&nbsp
+<strong><%= link_to 'PAC Contribution', pacs_path(@member) %></strong>
+</p>
+
+<p>
   <strong>Last name:</strong>
   <%= @member.Last_Name %>
+  &nbsp
   <strong>First name:</strong>
   <%= @member.First_Name %>
+  <br />
   <strong>Company:</strong>
   <%= @member.Company %>
+  &nbsp
   <strong>Tx license:</strong>
   <%= @member.TX_License %>
+  <br />
   <strong>Street1:</strong>
   <%= @member.Street1 %>
+  &nbsp
   <strong>City:</strong>
   <%= @member.City %>
+  &nbsp
   <strong>State:</strong>
   <%= @member.State %>
+  &nbsp
   <strong>Zip:</strong>
   <%= @member.Zip %>
+  <br />
   <strong>Main phone:</strong>
   <%= @member.Main_Phone %>
+  &nbsp
   <strong>Main email:</strong>
   <%= @member.Main_Email %>
+  <br />
   <strong>Customer type:</strong>
   <%= @member.Customer_Type %>
+  &nbsp
   <strong>Date joined taa:</strong>
   <%= @member.Date_Joined_TAA %>
-
+  <br />
   <strong>Notes:</strong>
   <%= @member.Notes %>
+  <br />
   <strong>Added to webbase:</strong>
   <%= @member.Added_to_WebBase %>
-
+  <br />
   <strong>Member Created At:</strong>
   <%= @member.created_at %>
+  &nbsp
   <strong>Member Updated At:</strong>
   <%= @member.updated_at %>
+</p>
 
-
+<p>
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
-
-
-<br />
-<strong><%= link_to 'Payment Information', payments_path(@member) %><strong>
-
-<br />
-<strong><%= link_to 'Continue Education', continueedus_path(@member) %></strong>
-
-<br />
-<strong><%= link_to 'PAC Contribution', pacs_path(@member) %></strong>
+</p>
 
 <li>
    <%= link_to "Log out", logout_path, method: "delete" %>
 </li>
-
 
 <% provide(:title, @member.Last_Name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= @member.Last_Name %>
+        <%= @member.First_Name %>&nbsp<%= @member.Last_Name %>
       </h1>
     </section>
   </aside>
