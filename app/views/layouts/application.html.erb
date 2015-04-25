@@ -16,11 +16,48 @@
         <%= link_to "Auctioneer Association", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   root_path %></li>
-            <li><%= link_to "Help",   '#' %></li>
+            <li><%= link_to "Home",   '#' %></li>
 
         <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
+          <% if current_user_admin? %>
+          
+          <li><%= link_to "Members", '#' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Payments <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "See All Payments", '#' %></li>
+              <li><%= link_to "Add New Payment", '#'%></li>
+              </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              PAC <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "See All PAC Entries", '#' %></li>
+              <li><%= link_to "Add New PAC Entry", '#' %></li>
+              </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              CE <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "See All CE Listings", '#' %></li>
+              <li><%= link_to "Add New CE Entry", '#' %></li>
+              </ul>
+          </li>
+          <li><%= link_to "DataBase IO",   '#' %></li>
+          <% else %>
+          <li><%= link_to "Make Payment",   '#' %></li>
+          <li><%= link_to "Continuing Education",   '#' %></li>
+          <li><%= link_to "PAC",   '#' %></li>
+          <li><%= link_to "Contact Us",   '#' %></li>
+          
+          <% end %>
+          
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
@@ -34,6 +71,8 @@
               </li>
             </ul>
           </li>
+          
+          
         <% else %>
           <li><%= link_to "Log in", '#' %></li>
         <% end %>

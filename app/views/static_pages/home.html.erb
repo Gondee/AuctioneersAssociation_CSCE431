@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home | Ruby on Rails Tutorial Sample App</title>
+    <title>Home - Auctioneer Association</title>
   </head>
   <body>
-    <h1>Auctioneer Association</h1>
+    <h1>Welcome!</h1>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "sample app", '#', id: "logo" %>
+        <%= link_to "Texas Auctioneer Association", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Home", login_path %></li>
             <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Log in", login_path %></li>
           </ul>
         </nav>
       </div>
@@ -20,32 +20,36 @@
     <div class="container">
       <%= yield %>
     </div>
-    <p>
-      <a href="https://rails-tutorial-wzlxjtu.c9.io/members">Cloud9_Members</a>
-      <a href="https://devops.herokuapp.com/members">Heroku_Members</a>
-      <br>
-      <a href="https://rails-tutorial-wzlxjtu.c9.io/payments">Cloud9_Payments</a>
-      <a href="https://devops.herokuapp.com/payments">Heroku_Payments</a>
-      <br>
-      <a href="https://rails-tutorial-wzlxjtu.c9.io/pacs">Cloud9_PAC</a>
-      <a href="https://devops.herokuapp.com/pacs">Heroku_PAC</a>
-      <br>
-      <a href="https://rails-tutorial-wzlxjtu.c9.io/continueedus">Cloud9_CE</a>
-      <a href="https://devops.herokuapp.com/continueedus">Heroku_CE</a>
-      <br>
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-      <%= link_to "Log in", login_path %>
-    </p>
+    
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-4 column">
+			<h2>
+				New to Texas Auctioneer Association? 
+			</h2>
+			<p>
+				<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-info btn-block active" %>
+			</p>
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				Current Member Login
+			</h2>
+			<p>
+				<%= link_to "Log in", login_path, class: "btn btn-lg btn-info btn-block active" %>
+			</p>
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				Looking to Renew your Membership? 
+			</h2>
+			<p>
+				<%= link_to "Renew Membership", login_path, class: "btn btn-lg btn-info btn-block active" %>
+			</p>
+		</div>
+	</div>
+</div>
+
   </body>
 </html>
 
-<h2>Import Members From CSV</h2>
-<p>The first line of the CSV must hold each columns' name, and should be consistent with the online table</p>
-<%= form_tag import_members_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-<li>
-   <%= link_to "Log out", logout_path, method: "delete" %>
-</li>
