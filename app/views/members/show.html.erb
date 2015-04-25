@@ -2,19 +2,13 @@
 
 
 <p>
-<strong><%= link_to 'Current Member Payments', payments_path(@member.id) %><strong>
-&nbsp
-<strong><%= link_to 'All Member Payments', payments_path %><strong>
-</p>
-<p>
-<strong><%= link_to 'Current Member Continue Educations', continueedus_path(@member.id) %><strong>
-&nbsp  
-<strong><%= link_to 'All Member Continue Educations', continueedus_path %></strong>
-</p>
-<p>
-<strong><%= link_to 'Current Member PAC Contributions', pacs_path(@member.id) %></strong>
-&nbsp
-<strong><%= link_to 'All Member PAC Contributions', pacs_path %></strong>
+<div align="center">
+<strong><button type="button"><%= link_to 'My Payments', payments_path(@member.id) %></button><strong>
+&nbsp;&nbsp;&nbsp;&nbsp
+<strong><button type="button"><%= link_to 'My Continue Educations', continueedus_path(@member.id) %></button><strong>
+&nbsp;&nbsp;&nbsp;&nbsp
+<strong><button type="button"><%= link_to 'My PAC Contributions', pacs_path(@member.id) %></button></strong>
+</div>
 </p>
 
 
