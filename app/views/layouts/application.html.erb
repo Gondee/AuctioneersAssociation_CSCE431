@@ -16,44 +16,46 @@
         <%= link_to "Auctioneer Association", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Home", members_path %></li>
 
         <% if logged_in? %>
           <% if current_user_admin? %>
           
-          <li><%= link_to "Members", '#' %></li>
+          <li><%= link_to "Members", members_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Payments <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "See All Payments", '#' %></li>
-              <li><%= link_to "Add New Payment", '#'%></li>
+              <li><%= link_to "See All Payments", payments_path %></li>
+              <li><%= link_to "Add New Payment", new_payment_path %></li>
               </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              PAC <b class="caret"></b>
+              PACs <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "See All PAC Entries", '#' %></li>
-              <li><%= link_to "Add New PAC Entry", '#' %></li>
+              <li><%= link_to "See All PAC Entries", pacs_path %></li>
+              <li><%= link_to "Add New PAC Entry", new_pac_path %></li>
               </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              CE <b class="caret"></b>
+              Continuing Educations <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "See All CE Listings", '#' %></li>
-              <li><%= link_to "Add New CE Entry", '#' %></li>
+              <li><%= link_to "See All CE Listings", continueedus_path %></li>
+              <li><%= link_to "Add New CE Entry", new_continueedu_path %></li>
               </ul>
           </li>
-          <li><%= link_to "DataBase IO",   '#' %></li>
+          <li><%= link_to "DataBase IO", dbio_index_path %></li>
+          
           <% else %>
-          <li><%= link_to "Make Payment",   '#' %></li>
-          <li><%= link_to "Continuing Education",   '#' %></li>
-          <li><%= link_to "PAC",   '#' %></li>
+          
+          <li><%= link_to "Make Payment", new_payment_path %></li>
+          <li><%= link_to "ADD New CE", new_continueedu_path %></li>
+          <li><%= link_to "Add New PAC", new_pac_path %></li>
           <li><%= link_to "Contact Us",   '#' %></li>
           
           <% end %>
@@ -74,7 +76,7 @@
           
           
         <% else %>
-          <li><%= link_to "Log in", '#' %></li>
+          <li><%= link_to "Log in", login_path %></li>
         <% end %>
 
           </ul>
