@@ -13,6 +13,7 @@
 #bundle exec rake db:migrate
 #rake routes help
               Prefix Verb   URI Pattern                         Controller#Action
+          dbio_index GET    /dbio/index(.:format)               dbio#index
  password_resets_new GET    /password_resets/new(.:format)      password_resets#new
 password_resets_edit GET    /password_resets/edit(.:format)     password_resets#edit
  import_continueedus POST   /continueedus/import(.:format)      continueedus#import
