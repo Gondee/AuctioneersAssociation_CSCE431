@@ -29,7 +29,7 @@
               <td><%= member.Main_Phone %></td>
               <td><%= member.Main_Email %></td>
               <td><%= member.Customer_Type %></td>
-              <td><%= member.Date_Joined_TAA %></td>
+              <td><%= member.created_at %></td>
               <td><%= link_to 'Details', member %></td>
               <td><%= link_to 'Edit', edit_member_path(member) %></td>
               <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
