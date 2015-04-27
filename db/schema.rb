@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421072334) do
+ActiveRecord::Schema.define(version: 20150427004719) do
 
   create_table "continueedus", force: :cascade do |t|
     t.float    "Annual_Convention_CE_Hours"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20150421072334) do
     t.float    "PAC_Contribution"
     t.float    "Annual_Convention_CE_Hours"
     t.float    "Online_CE_Hours"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "password_digest"
-    t.boolean  "admin",                      default: false
+    t.integer  "admin",                      default: 0
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
   end
