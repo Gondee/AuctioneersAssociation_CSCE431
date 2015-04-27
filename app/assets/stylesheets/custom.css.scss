@@ -8,6 +8,8 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;  
   padding-top: 60px;
   background-color:red;
 }
@@ -28,12 +30,15 @@ textarea {
 }
 
 /* typography */
+tbody{
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
 h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -41,12 +46,22 @@ h1 {
 }
 
 h2 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+}
+
+h3 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.3999996185303px;
 }
 
 p {
@@ -72,11 +87,12 @@ p {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
   -webkit-font-smoothing: antialiased;
 }
+
+
 /* navbar */
 .navbar-TAA{
   color:hsl(212,84%,43%);
   background-color:hsl(212,84%,43%);
-  
 }
 /* header */
 
@@ -98,7 +114,6 @@ p {
 }
 
 /* footer */
-
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -124,7 +139,6 @@ footer {
 }
 
 /* mixins, variables, etc. */
-
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
@@ -158,8 +172,8 @@ input {
 
 
 
-/* forms */
 
+/* forms */
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -168,8 +182,45 @@ input {
     font-weight: normal;
   }
 }
-
 #session_remember_me {
   width: auto;
   margin-left: 0;
 }
+
+
+
+/* member.show */
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
