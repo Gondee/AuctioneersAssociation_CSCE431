@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
       @payments = Payment.where("member_id = #{params[:format]}")
     end
   end
+
   # GET /payments/1
   # GET /payments/1.json
   def show
