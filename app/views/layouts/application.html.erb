@@ -16,7 +16,7 @@
         <%= link_to "Auctioneer Association", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Home",   root_url %></li>
 
         <% if logged_in? %>
           <% if current_user_admin? %>
@@ -49,7 +49,7 @@
               <li><%= link_to "Add New CE Entry", '#' %></li>
               </ul>
           </li>
-          <li><%= link_to "DataBase IO",   '#' %></li>
+          <li><%= link_to "DataBase IO",   dbio_index_path %></li>
           <% else %>
           <li><%= link_to "Make Payment",   '#' %></li>
           <li><%= link_to "Continuing Education",   '#' %></li>
