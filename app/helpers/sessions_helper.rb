@@ -38,7 +38,19 @@ module SessionsHelper
   end
   
   def current_user_admin?
-    current_user.admin
+    if current_user.admin >=1
+      true
+    else
+      false
+    end
+  end
+  
+  def current_user_master_admin?
+    if current_user.admin == 2
+      true
+    else
+      false
+    end
   end
   
 end

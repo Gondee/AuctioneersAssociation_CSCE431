@@ -32,8 +32,6 @@ class SessionsController < ApplicationController
   
   def active?
     payment = @memberid.payments.where(Pymt_Date: (Time.now.midnight - 364.day)..Time.now.midnight)   #Payment.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight).find
-    #payment = Hash.new()
-    #payment['q'] = 1
     if payment.empty?
       false
     else
@@ -42,7 +40,19 @@ class SessionsController < ApplicationController
   end
   
   def admin?
-    @memberid.admin
+    if @memberid.admin >=1
+      true
+    else
+      false
+    end
+    
+  end
+  def master_admin?
+    if @memberid.admin == 2
+      true
+    else
+      false
+    end
   end
   
 end

@@ -1,0 +1,75 @@
+digraph HelloApp {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "HelloApp domain model\n\n";
+m_Continueedu [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Continueedu</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="Annual_Convention_CE_Hours">Annual_Convention_CE_Hours <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="Online_CE_Hours">Online_CE_Hours <font face="Arail Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+m_Member [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Member</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="Added_to_WebBase">Added_to_WebBase <font face="Arail Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="Annual_Convention_CE_Hours">Annual_Convention_CE_Hours <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="City">City <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Company">Company <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Customer_Type">Customer_Type <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Date_Joined_TAA">Date_Joined_TAA <font face="Arail Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="First_Name">First_Name <font face="Arail Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="Last_Name">Last_Name <font face="Arail Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="Main_Email">Main_Email <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Main_Phone">Main_Phone <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Notes">Notes <font face="Arail Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="Online_CE_Hours">Online_CE_Hours <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="PAC_Contribution">PAC_Contribution <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="Pymt_Amt">Pymt_Amt <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="Pymt_Date">Pymt_Date <font face="Arail Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="Pymt_Type">Pymt_Type <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="State">State <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="Street1">Street1 <font face="Arail Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="TX_License">TX_License <font face="Arail Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="Zip">Zip <font face="Arail Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="admin">admin <font face="Arail Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="reset_digest">reset_digest <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="reset_sent_at">reset_sent_at <font face="Arail Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+m_Pac [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Pac</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="PAC_Contribution">PAC_Contribution <font face="Arail Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+m_Payment [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Payment</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="Pymt_Amt">Pymt_Amt <font face="Arail Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="Pymt_Date">Pymt_Date <font face="Arail Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="Pymt_Type">Pymt_Type <font face="Arail Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Member -> m_Continueedu [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Member -> m_Payment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Member -> m_Pac [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}

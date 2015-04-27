@@ -1,8 +1,9 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_member, only: [:show, :edit, :update, :destroy]
-  before_action :correct_member,   only: [:show, :edit, :update]
-  before_action :admin_member,     only: [:destroy, :index]
+  before_action :set_member,       only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_member, only: [:show, :edit, :update]
+  before_action :correct_member,   only: [:edit, :update]
+  before_action :admin_member,     only: [:index]
+  before_action :master_admin,     only: [:destroy]
   # GET /members
   # GET /members.json
   def index
@@ -33,7 +34,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-    @member.admin = true
+    #@member.admin = 2
     respond_to do |format|
       if @member.save
         log_in @member
@@ -64,11 +65,12 @@ class MembersController < ApplicationController
   # DELETE /members/1
   # DELETE /members/1.json
   def destroy
-    @member.destroy
-    respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully Deleted.' }
-      format.json { head :no_content }
-    end
+      @member.destroy
+      respond_to do |format|
+        format.html { redirect_to members_url, notice: 'Member was successfully Deleted.' }
+        format.json { head :no_content }
+      end
+  
   end
 
   # Import CSV table
@@ -101,8 +103,21 @@ class MembersController < ApplicationController
     # Confirms the correct user.
     def correct_member
       @mbmer = Member.find(params[:id])
-      redirect_to(root_url) unless current_user?(@member) || current_user_admin?
+      if current_user?(@member) || current_user_master_admin?
+        true #Correct, was creating confusion 
+      else
+        flash[:notice] = "Unauthorized. Please Contact Admin"
+        redirect_to members_url
+      end
     end
+    #Checks if admin is a master admin, in which case they have full control
+    def master_admin
+      if !current_user_master_admin?
+        flash[:notice] = "Unauthorized. Please Contact Admin"
+        redirect_to login_url
+      end
+    end
+    
     # Confirms an admin user.
     def admin_member
       if !logged_in?
@@ -112,6 +127,8 @@ class MembersController < ApplicationController
         if !current_user_admin?
           flash[:notice] = "Please log in as Admin."
           redirect_to login_url
+        else 
+          true
         end
       end
     end
