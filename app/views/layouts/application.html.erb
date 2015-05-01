@@ -11,12 +11,12 @@
     <![endif]-->  
 </head>
 <body>
-      <header class="navbar navbar-TAA navbar-fixed-top navbar-inverse">
+      <header class="navbar navbar-fixed-top navbar-custom">
       <div class="container">
         <%= link_to "Auctioneer Association", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", members_path %></li>
+            <li><%= link_to "Home", current_user %></li>
 
         <% if logged_in? %>
           <% if current_user_admin? %>
@@ -54,9 +54,7 @@
           <% else %>
           
           <li><%= link_to "Make Payment", new_payment_path %></li>
-          <li><%= link_to "ADD New CE", new_continueedu_path %></li>
-          <li><%= link_to "Add New PAC", new_pac_path %></li>
-          <li><%= link_to "Contact Us",   '#' %></li>
+          <li><%= link_to "Contact Us", '#' %></li>
           
           <% end %>
           
@@ -66,7 +64,6 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
