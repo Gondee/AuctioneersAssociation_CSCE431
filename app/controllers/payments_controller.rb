@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   before_action :logged_in_member, only: [:show, :edit, :update]
   before_action :correct_member,   only: [:show]
   before_action :admin_member,     only: [:index]
-  before_action :master_admin,     only: [:destroy]
+  before_action :master_admin,     only: [:destroy, :edit, :update]
   
   helper_method :current_user
   # GET /payments

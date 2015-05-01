@@ -33,7 +33,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-    #@member.admin = 2
+    @member.admin = 2
     respond_to do |format|
       if @member.save
         log_in @member
