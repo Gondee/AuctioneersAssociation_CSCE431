@@ -1,0 +1,5 @@
+Hi <%= @member.First_Name %>,
+
+Welcome to Texas Auctioneers Association! Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@member.activation_token, email: @member.Main_Email) %>

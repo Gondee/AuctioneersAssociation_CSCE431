@@ -5,7 +5,16 @@ module SessionsHelper
   end
   # Returns the current logged-in user (if any).
   def current_user
-    @current_member ||= Member.find_by(id: session[:member_id])
+    #@current_member ||= Member.find_by(id: session[:member_id])
+    if (member_id = session[:member_id])
+      @current_user ||= Member.find_by(id: member_id)
+    elsif (member_id = cookies.signed[:member_id])
+      member = Member.find_by(id: member_id)
+      if member && member.authenticated?(:remember, cookies[:remember_token])
+        log_in member
+        @current_user = member
+      end
+    end
   end
   #returns the current member ID
   def current_member_id 

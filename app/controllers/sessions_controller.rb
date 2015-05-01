@@ -9,6 +9,18 @@ class SessionsController < ApplicationController
      if member && member.authenticate(params[:session][:password])
        #If log in as admin, redirect to administrating members page. Otherwise, redirect to user info page 
        log_in member
+       
+       if member.activated?
+        log_in member
+        params[:session][:remember_me] == '1' ? remember(member) : forget(member)
+        redirect_back_or member
+       else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+       end
+       
         if !admin?
           if(active?)
             redirect_to member

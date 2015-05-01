@@ -40,7 +40,8 @@ class MembersController < ApplicationController
         log_in @member
         format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile.' }
         format.json { render :show, status: :created, location: @member }
-        #redirect_back_or member #may be unnessessary
+        @member.send_activation_email
+        flash[:info] = "Please check your email to activate your account."
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -78,6 +79,7 @@ class MembersController < ApplicationController
     Member.import(params[:file])
     redirect_to members_url, notice: "Products imported."
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

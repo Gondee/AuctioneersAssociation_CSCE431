@@ -1,12 +1,14 @@
 class Member < ActiveRecord::Base
     
-   attr_accessor :remember_token, :reset_token
+   attr_accessor :remember_token, :reset_token,:activation_token
    
    before_save   :downcase_email
     
    has_many :payments, dependent: :destroy 
    has_many :pacs, dependent: :destroy
    has_many :continueedus, dependent: :destroy
+  
+   before_create :create_activation_digest
    has_secure_password
    validates :password, length: { minimum: 6 }, confirmation: true, allow_blank: true
    validates :password_confirmation, presence: true, allow_blank: true
@@ -104,12 +106,29 @@ class Member < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
   
+    # Activates an account.
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # Sends activation email.
+  def send_activation_email
+    MemberMailer.account_activation(self).deliver_now
+  end
+  
   private
 
   # Converts email to all lower-case.
   def downcase_email
      self.Main_Email = self.Main_Email.downcase
   end
+  
+  # Creates and assigns the activation token and digest.
+    def create_activation_digest
+      self.activation_token  = Member.new_token
+      self.activation_digest = Member.digest(activation_token)
+    end
     
   # Returns a random token.
   def Member.new_token
