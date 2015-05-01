@@ -21,9 +21,11 @@
         <td><%= payment.Pymt_Amt %></td>
         <td><%= payment.Pymt_Date %></td>
         <td><%= payment.member_id %></td>
+        <% if current_user_admin? %>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
         <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
