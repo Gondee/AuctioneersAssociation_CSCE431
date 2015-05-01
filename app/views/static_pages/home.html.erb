@@ -19,7 +19,7 @@ Password:     123456
   	
   	
     <h1>Welcome!</h1>
-    <header class="navbar navbar-TAA navbar-fixed-top navbar-inverse">
+    <header class="navbar-fixed-top navbar-custom">
       <div class="container">
         <%= link_to "Texas Auctioneer Association", '#', id: "logo" %>
         <nav>
@@ -42,7 +42,7 @@ Password:     123456
 				New to Texas Auctioneer Association? 
 			</h2>
 			<p>
-				<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-TAA btn-block active" %>
+				<%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-block active" %>
 			</p>
 		</div>
 		<div class="col-md-4 column">
@@ -50,7 +50,7 @@ Password:     123456
 				Current Member Login
 			</h2>
 			<p>
-				<%= link_to "Log in", login_path, class: "btn btn-lg btn-TAA btn-block active" %>
+				<%= link_to "Log in", login_path, class: "btn btn-primary btn-block active" %>
 			</p>
 		</div>
 		<div class="col-md-4 column">
@@ -58,7 +58,7 @@ Password:     123456
 				Looking to Renew your Membership? 
 			</h2>
 			<p>
-				<%= link_to "Renew Membership", login_path, class: "btn btn-lg btn-TAA btn-block active" %>
+				<%= link_to "Renew Membership", login_path, class: "btn btn-primary btn-block active" %>
 			</p>
 		</div>
 	</div>
