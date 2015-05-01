@@ -42,6 +42,8 @@ class MembersController < ApplicationController
         format.json { render :show, status: :created, location: @member }
         @member.send_activation_email
         flash[:info] = "Please check your email to activate your account."
+        #log_out 
+        #redirect_to root_url
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -61,6 +63,8 @@ class MembersController < ApplicationController
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
+   
+    
   end
 
   # DELETE /members/1
