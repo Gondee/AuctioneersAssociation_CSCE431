@@ -38,10 +38,9 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.save
         log_in @member
-        format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile.' }
+        format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile and check your email to activate your account.' }
         format.json { render :show, status: :created, location: @member }
         @member.send_activation_email
-        flash[:info] = "Please check your email to activate your account."
         #log_out 
         #redirect_to root_url
       else
