@@ -24,7 +24,7 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?  #Reference function above. Never got its name changed to member, leaving for dependency sake
   end
-  
+
   # Redirects to stored location (or to the default).
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

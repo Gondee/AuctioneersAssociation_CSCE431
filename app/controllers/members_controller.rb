@@ -18,7 +18,6 @@ class MembersController < ApplicationController
   # GET /members/1.json
   def show
     @member = Member.find(params[:id])
-    #@payment = @member.payments.paginate(page: params[:page])
   end
 
   # GET /members/new
@@ -98,6 +97,7 @@ class MembersController < ApplicationController
    # Before filters
 
     # Confirms a logged-in user.
+
     def logged_in_member
       unless logged_in?
         store_location
@@ -107,7 +107,7 @@ class MembersController < ApplicationController
     end
     # Confirms the correct user.
     def correct_member
-      @mbmer = Member.find(params[:id])
+      #@mbmer = Member.find(params[:id])
       if current_user?(@member) || current_user_master_admin?
         true #Correct, was creating confusion 
       else
@@ -132,7 +132,7 @@ class MembersController < ApplicationController
         if !current_user_admin?
           flash[:notice] = "Please log in as Admin."
           redirect_to login_url
-        else 
+        else
           true
         end
       end
