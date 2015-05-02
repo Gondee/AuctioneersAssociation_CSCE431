@@ -15,6 +15,7 @@
             <th>Main email</th>
             <th>Customer type</th>
             <th>Date joined taa</th>
+            <th>Admin Options</th>
     </tr>
 				</thead>
 				<tbody>
@@ -29,11 +30,26 @@
               <td><%= member.Main_Email %></td>
               <td><%= member.Customer_Type %></td>
               <td><%= member.created_at %></td>
-              <td><%= link_to 'Details', member %></td>
-              <td><%= link_to 'Edit', edit_member_path(member) %></td>
-              <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <td><%= link_to 'New Payment', new_payment_path(member) %></td>
+              <td>
+              <ul class="nav">
+                  <li class="dropdown">
+                    <a role="button" href="#" data-toggle="dropdown" data-target="#" class="dropdown-toggle">
+                      Options
+                      <b class="caret"></b>
+                    </a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li>
+                          <%= link_to 'Details', member %>
+                          <%= link_to 'Edit', edit_member_path(member) %>
+                          <%= link_to 'New Payment', new_payment_path(member) %>
+                          <%= link_to 'New Continue Edu', new_continueedu_path(member) %>
+                          <%= link_to 'New PAC donation', new_pac_path(member) %>
+                          <%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure, this is not reversible?' } %>
+                      </li>
+                    </ul>
+                </ul>
             </tr>
+            </td>
           <% end %>
 				</tbody>
 			</table>
