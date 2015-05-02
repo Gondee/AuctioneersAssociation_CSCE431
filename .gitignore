@@ -31,7 +31,8 @@
 .dat*
 .repl_history
 build/
-
+.c9/metadata/tab0
+/spring/
 ## Documentation cache and generated files:
 /.yardoc/
 /_yardoc/
