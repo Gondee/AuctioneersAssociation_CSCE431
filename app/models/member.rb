@@ -69,7 +69,7 @@ class Member < ActiveRecord::Base
        
        member_hash = Hash.new()
        member_hash = import_hash
-       member_hash[":activated"] = true
+       member_hash["activated"] = true
        Member.create! member_hash
        
        payment_hash = Hash.new()
