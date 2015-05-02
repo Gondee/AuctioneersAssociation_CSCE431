@@ -1,6 +1,9 @@
 <h1>Listing Payments</h1>
 
-<table>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered">
   <thead>
     <tr>
       <th>ID</th>
@@ -8,6 +11,9 @@
       <th>Pymt amt</th>
       <th>Pymt date</th>
       <th>member</th>
+      <th></th>
+       <th></th>
+        <th></th>
     </tr>
   </thead>
 
@@ -28,7 +34,9 @@
     <% end %>
   </tbody>
 </table>
-
+		</div>
+	</div>
+</div>
 <br>
 
 <%= link_to 'New Payment', new_payment_path %>
