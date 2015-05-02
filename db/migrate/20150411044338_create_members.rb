@@ -23,6 +23,10 @@ class CreateMembers < ActiveRecord::Migration
       t.float :Online_CE_Hours
 
       t.timestamps null: false
+      t.string :activation_digest
+      t.boolean :activated, default: false
+      t.datetime :activated_at
+    
     end
   end
 end
