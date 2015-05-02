@@ -11,9 +11,7 @@
       <th>Pymt amt</th>
       <th>Pymt date</th>
       <th>member</th>
-      <th></th>
-       <th></th>
-        <th></th>
+      <th>Admin Options</th>
     </tr>
   </thead>
 
@@ -26,9 +24,23 @@
         <td><%= payment.Pymt_Date %></td>
         <td><%= payment.member_id %></td>
         <% if current_user_admin? %>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+              <ul class="nav">
+                  <li class="dropdown">
+                    <a role="button" href="#" data-toggle="dropdown" data-target="#" class="dropdown-toggle">
+                      Options
+                      <b class="caret"></b>
+                    </a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li>
+                          <%= link_to 'Show', payment %>
+                          <%= link_to 'Edit', edit_payment_path(payment) %>
+                          <%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </li>
+                    </ul>
+                </ul>
+            </tr>
+            </td>
         <% end %>
       </tr>
     <% end %>
