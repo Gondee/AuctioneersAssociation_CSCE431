@@ -24,6 +24,8 @@ class PacsController < ApplicationController
   # GET /pacs/new
   def new
     @pac = Pac.new
+    @pac.member_id = params[:format]
+    @pac.save!
   end
 
   # GET /pacs/1/edit
@@ -34,7 +36,7 @@ class PacsController < ApplicationController
   # POST /pacs.json
   def create
     @pac = Pac.new(pac_params)
-
+    @pac.member_id = params[:format] #Creates the new payment as the active session user!
     respond_to do |format|
       if @pac.save
         format.html { redirect_to @pac, notice: 'Pac was successfully created.' }
