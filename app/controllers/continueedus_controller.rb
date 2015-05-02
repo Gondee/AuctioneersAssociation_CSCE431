@@ -24,6 +24,8 @@ class ContinueedusController < ApplicationController
   # GET /continueedus/new
   def new
     @continueedu = Continueedu.new
+    @continueedu.member_id = params[:format]
+    @continueedu.save!
   end
 
   # GET /continueedus/1/edit
@@ -34,7 +36,7 @@ class ContinueedusController < ApplicationController
   # POST /continueedus.json
   def create
     @continueedu = Continueedu.new(continueedu_params)
-
+    @continueedu.member_id = params[:format]
     respond_to do |format|
       if @continueedu.save
         format.html { redirect_to @continueedu, notice: 'Continueedu was successfully created.' }

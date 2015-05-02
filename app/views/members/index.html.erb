@@ -43,6 +43,8 @@
                           <%= link_to 'Details', member %>
                           <%= link_to 'Edit', edit_member_path(member) %>
                           <%= link_to 'New Payment', new_payment_path(member) %>
+                          <%= link_to 'New Continue Edu', new_continueedu_path(member) %>
+                          <%= link_to 'New PAC donation', new_pac_path(member) %>
                           <%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure, this is not reversible?' } %>
                       </li>
                     </ul>
