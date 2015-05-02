@@ -21,8 +21,8 @@ class Member < ActiveRecord::Base
    VALID_ZIP_REGEX=/\A[0-9]+\z/
    validates :Zip, length: { minimum: 5 },  format: { with: VALID_ZIP_REGEX }, allow_blank: true
    
-   #VALID_PHONE_REGEX=/\A[0-9]+\z/
-   #validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
+   VALID_PHONE_REGEX=/\A[0-9]+\z/
+   validates :Main_Phone, length: { maximum: 255 },  format: { with: VALID_PHONE_REGEX }
    
    
    
@@ -31,6 +31,12 @@ class Member < ActiveRecord::Base
    #def FullName
     #[First_Name, Last_Name].join " "
    #end
+    def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+   
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
