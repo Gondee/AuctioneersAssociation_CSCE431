@@ -13,10 +13,10 @@
 <body>
       <header class="navbar navbar-fixed-top navbar-custom">
       <div class="container">
-        <%= link_to "Auctioneer Association", root_path, id: "logo" %>
+        <%= link_to "Auctioneer Association", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", current_user %></li>
+            <li><%= link_to "Home", root_path %></li>
 
         <% if logged_in? %>
           <% if current_user_admin? %>
