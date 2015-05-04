@@ -9,7 +9,9 @@
       <th>ID</th>
       <th>Pac contribution</th>
       <th>member</th>
+      <% if current_user_admin? %>
       <th>Admin Options</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -19,6 +21,7 @@
         <td><%= pac.id %></td>
         <td><%= pac.PAC_Contribution %></td>
         <td><%= pac.member_id %></td>
+        <% if current_user_admin? %>
        <td>
               <ul class="nav">
                   <li class="dropdown">
@@ -36,6 +39,7 @@
                 </ul>
             </tr>
             </td>
+            <% end %>
       </tr>
     <% end %>
   </tbody>
