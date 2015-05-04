@@ -168,7 +168,9 @@
 
 <!--
 <p>
-<%= link_to 'Edit', edit_member_path(@member) %> |
+<% if current_user_admin? %>
+<%= link_to 'Edit', edit_member_path(@member) %>
+<% end %>
 <%= link_to 'Back', current_user %>
 </p>
 

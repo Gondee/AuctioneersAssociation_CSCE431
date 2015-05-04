@@ -12,6 +12,7 @@
   <strong>Member:</strong>
   <%= @pac.member_id %>
 </p>
-
-<%= link_to 'Edit', edit_pac_path(@pac) %> |
+<% if current_user_admin? %>
+<%= link_to 'Edit', edit_pac_path(@pac) %>
+<% end %>
 <%= link_to 'Back', pacs_path %>
