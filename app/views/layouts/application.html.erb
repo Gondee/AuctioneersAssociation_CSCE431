@@ -13,7 +13,7 @@
 <body>
       <header class="navbar navbar-fixed-top navbar-custom">
       <div class="container">
-        <%= link_to "Auctioneer Association", '#', id: "logo" %>
+        <%= link_to "Auctioneer Association", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", current_user %></li>
@@ -51,7 +51,7 @@
           <% else %>
           
           <li><%= link_to "Make Payment", new_payment_path %></li>
-          <li><%= link_to "Contact Us", '#' %></li>
+          <li><%= link_to "Contact Us", root_path %></li>
           
           <% end %>
           
