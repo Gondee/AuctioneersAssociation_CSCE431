@@ -11,7 +11,9 @@
       <th>Pymt amt</th>
       <th>Pymt date</th>
       <th>member</th>
+      <% if current_user_admin? %>
       <th>Admin Options</th>
+      <% end %>
     </tr>
   </thead>
 

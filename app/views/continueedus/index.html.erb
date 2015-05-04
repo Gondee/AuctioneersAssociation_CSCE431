@@ -9,7 +9,9 @@
       <th>Annual convention ce hours</th>
       <th>Online ce hours</th>
       <th>member</th>
+      <% if current_user_admin? %>
       <th>Admin Options</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -20,6 +22,7 @@
         <td><%= continueedu.Annual_Convention_CE_Hours %></td>
         <td><%= continueedu.Online_CE_Hours %></td>
         <td><%= continueedu.member_id %></td>
+        <% if current_user_admin? %>
         <td>
               <ul class="nav">
                   <li class="dropdown">
@@ -37,6 +40,7 @@
                 </ul>
             </tr>
             </td>
+            <% end %>
             </tr>
     <% end %>
   </tbody>
