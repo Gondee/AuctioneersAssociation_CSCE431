@@ -3,14 +3,14 @@ class PaymentsController < ApplicationController
   before_action :set_member,       only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update]
   before_action :correct_member,   only: [:show]
-  before_action :admin_member,     only: [:index]
+  #before_action :admin_member,     only: [:index]
   before_action :master_admin,     only: [:destroy, :edit, :update]
   
   helper_method :current_user
   # GET /payments
   # GET /payments.json
   def index
-    if params[:format] == nil
+    if params[:format] == nil && admin_member
       @payments = Payment.all
     else
       @payments = Payment.where("member_id = #{params[:format]}")
