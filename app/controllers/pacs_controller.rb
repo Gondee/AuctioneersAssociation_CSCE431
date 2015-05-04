@@ -12,7 +12,11 @@ class PacsController < ApplicationController
     if params[:format] == nil && admin_member
       @pacs = Pac.all
     else
-      @pacs = Pac.where("member_id = #{params[:format]}")
+      if current_member_id == params[:format].to_i
+        @pacs = Pac.where("member_id = #{params[:format]}")
+      else
+        redirect_to current_user
+      end
     end
   end
   

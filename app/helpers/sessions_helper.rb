@@ -18,7 +18,7 @@ module SessionsHelper
   end
   #returns the current member ID
   def current_member_id 
-   current_user.member_id
+   current_user.id
   end 
    # Returns true if the user is logged in, false otherwise.
   def logged_in?

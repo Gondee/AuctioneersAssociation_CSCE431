@@ -12,6 +12,10 @@
 #rails generate scaffold Payment Pymt_Type:string Pymt_Amt:float Pymt_Date:date member:references --force
 #bundle exec rake db:migrate
 #rake assets:precompile
+
+#git fetch --all
+#git reset --hard origin/master
+
 #rake routes help
               Prefix Verb   URI Pattern                         Controller#Action
           dbio_index GET    /dbio/index(.:format)               dbio#index

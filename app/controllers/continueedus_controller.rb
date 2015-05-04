@@ -12,10 +12,13 @@ class ContinueedusController < ApplicationController
     if params[:format] == nil && admin_member
       @continueedus = Continueedu.all
     else
-      @continueedus = Continueedu.where("member_id = #{params[:format]}")
+      if current_member_id == params[:format].to_i
+        @continueedus = Continueedu.where("member_id = #{params[:format]}")
+      else
+        redirect_to current_user
+      end
     end
   end
-  
   # GET /continueedus/1
   # GET /continueedus/1.json
   def show
