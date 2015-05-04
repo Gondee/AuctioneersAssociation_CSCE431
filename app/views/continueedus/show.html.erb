@@ -18,5 +18,7 @@
   <strong>Member:</strong>
   <%= @continueedu.member_id %>
 </p>
-
+<% if current_user_admin? %>
+<%= link_to 'Edit', edit_continueedu_path(@continueedu) %>
+<% end %>
 <%= link_to 'Back', continueedus_path %>
