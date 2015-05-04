@@ -22,7 +22,8 @@
   <strong>Member:</strong>
   <%= @payment.member_id %>
 </p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<% if current_user_admin? %>
+<%= link_to 'Edit', edit_payment_path(@payment) %>
+<% end %>
 <%= link_to 'Back', current_user %>
 <%= link_to "Log out", logout_path, method: "delete" %>
