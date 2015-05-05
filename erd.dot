@@ -45,7 +45,10 @@ m_Member [label = <<table border="0" align="center" cellspacing="0.5" cellpaddin
   <tr><td align="left" width="130" port="Street1">Street1 <font face="Arail Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="TX_License">TX_License <font face="Arail Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="Zip">Zip <font face="Arail Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="admin">admin <font face="Arail Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="activated">activated <font face="Arail Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="activated_at">activated_at <font face="Arail Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="activation_digest">activation_digest <font face="Arail Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="admin">admin <font face="Arail Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arail Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="reset_digest">reset_digest <font face="Arail Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="reset_sent_at">reset_sent_at <font face="Arail Italic" color="grey60">datetime</font></td></tr>

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   before_action :set_member,       only: [:show, :edit, :update, :destroy]
   before_action :logged_in_member, only: [:show, :edit, :update]
   before_action :correct_member,   only: [:show]
+  before_action :admin_lockout,    only: [:new]
   before_action :master_admin,     only: [:destroy, :edit, :update]
   
   helper_method :current_user
@@ -36,8 +37,7 @@ class PaymentsController < ApplicationController
       @payment.member_id = params[:format]
       @payment.save!
     end
-    #@payment = Payment.new :member_id => current_user.id #Depending on the amount, this will be used to auto fill. -JK
-    
+
   end
 
   # GET /payments/1/edit
@@ -138,6 +138,13 @@ class PaymentsController < ApplicationController
         flash[:notice] = "Unauthorized. Please Contact Admin"
         redirect_to login_url
       end
+    end
+    
+    def admin_lockout
+        if current_user_admin? && !current_user_master_admin?
+          flash[:notice] = "Unauthorized. Please Contact Admin"
+          redirect_to login_url
+        end
     end
     
     # Confirms an admin user.

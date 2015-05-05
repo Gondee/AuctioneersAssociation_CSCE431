@@ -35,3 +35,6 @@ gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
 gem 'bcrypt',               '3.1.7'
 
 gem 'bootstrap-sass',       '3.2.0.0'
+
+gem "rails-erd"
+gem 'ruby-graphviz'
