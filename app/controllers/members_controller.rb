@@ -33,18 +33,35 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-    #@member.admin = 2
-    respond_to do |format|
+    @member.admin = 2
+    @member.activated = true
+    if @member.admin == 2
+      respond_to do |format|
       if @member.save
-        log_in @member
+        #log_in @member #Don't need because admin doesnt want to log in as them
         format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile and check your email to activate your account.' }
         format.json { render :show, status: :created, location: @member }
-        @member.send_activation_email
+        #@member.send_activation_email #No need, admin made account
         #log_out 
         #redirect_to root_url
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+    else
+      respond_to do |format|
+        if @member.save
+          log_in @member
+          format.html { redirect_to edit_member_path(@member), notice: 'Welcome to the Texas Auctioneers Association! Please Fill in your profile and check your email to activate your account.' }
+          format.json { render :show, status: :created, location: @member }
+          @member.send_activation_email
+          #log_out 
+          #redirect_to root_url
+        else
+          format.html { render :new }
+          format.json { render json: @member.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
