@@ -33,7 +33,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-    @member.admin = 2
+    #@member.admin = 2
     @member.activated = true
     if @member.admin == 2
       @member.activated = true
