@@ -36,6 +36,7 @@ class MembersController < ApplicationController
     @member.admin = 2
     @member.activated = true
     if @member.admin == 2
+      @member.activated = true
       respond_to do |format|
       if @member.save
         #log_in @member #Don't need because admin doesnt want to log in as them
